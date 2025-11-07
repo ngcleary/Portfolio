@@ -1,5 +1,6 @@
 import profilePic from "../../public/profilepic.png";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
@@ -18,9 +19,48 @@ const categories = [
 ];
 
 const items = [
-    { id: 0, title: "Microsoft", details: "Details about Hobby 1" },
-    { id: 1, title: "IQP", details: "Details about Hobby 2" },
-    { id: 2, title: "WTB", details: "Project Alpha details" },
+    { id: 0, title: "AI Research Project - Microsoft", details: (
+        <div>
+            <div className="text-md text-left -mt-5">
+                Fall 2025 – Present
+            </div>
+            <div className="text-left mt-5">
+                I currently have the oppurtunity to work closely with a project manager from Microsoft to investigate
+                advanced Natural Language Processing (NLP) and GenAI techniques. Myself and a team of three others are
+                designing and developing an agentic RAG system with retrieval quality as the top priority. We are designing and testing
+                various frameworks to improve decision making and context optimization, while ensuring the system can be easily learned
+                by users and further adapted for future improvements.
+            </div>
+        </div>
+
+        ) },
+    { id: 1, title: "Brewery Wastewater Research Project - Albania", details: (
+            <div>
+                <div className="text-md text-left -mt-5">
+                    August 2024 - December 2024
+                </div>
+                <div className="text-left mt-5">
+                    In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
+                    weeks to complete a social science project. I worked on a team with three other students and we worked with
+                    SHUKALB, a non-profit water management and sewage organization in Albania.
+                    In August 2024, I began working with three of my peers to develop a pilot water stewardship certification program
+                    for Albanian craft brewers. In October we began our 2 month stay in Tirana, Albania where we worked closely with
+                    Albanian water professionals and local craft brewers.
+                </div>
+            </div>)
+    },
+    { id: 2, title: "WhatToBring", details: (
+            <div>
+                <div className="text-md text-left -mt-5">
+                    Fall 2025 - Present
+                </div>
+                <div className="text-left mt-5">
+                    In 2022, I created WhatToBring, my first ever web development project using Javascript, HTML, and CSS paired with Express, Node.js, and MongoDB,
+                    Now, I am applying the skills I have learned about agile methodolgy and planning, as well as my new techinical skills in React, PrismaORM,
+                    PostgreSQL, and Typescript.
+                </div>
+            </div>
+        ) },
     { id: 3, title: "sfteng", details: "Project Beta details" },
     { id: 4, title: "look website", details: "Project Gamma details" },
     { id: 5, title: "lasker morris", details: "School info" },
@@ -31,10 +71,14 @@ const items = [
 
 export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate();
 
-    // const activeCategory = categories.find((cat) =>
-    //     cat.indices.includes(currentIndex)
-    // );
+    const handleLearnMore = (category: Category)=> {
+        const slash = '/' ;
+        const page = slash.concat(category.name.trim().toLowerCase().replace(/\s+/g, ""));
+        console.log(page);
+        navigate(page)
+    }
 
     const handleCategoryClick = (category: Category) => {
         setCurrentIndex(category.indices[0]);
@@ -53,6 +97,7 @@ export default function Home() {
 
     const activeCategory = categories.find((cat) => cat.indices.includes(currentIndex));
     const isCategoryChange = prevCategoryRef.current?.name !== activeCategory?.name;
+
 
     // Track previous index and category
     useEffect(() => {
@@ -97,30 +142,7 @@ export default function Home() {
 
                 {/* Right column */}
                 <div className="flex flex-col gap-6">
-                    {/* Top large project detail card */}
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={items[currentIndex].id}
-                            initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}
-                            animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}
-                            exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}
-                            transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}
-                            className="w-[700px]"
-                        >
-                            <Card className="w-[870px] h-[400px] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
-                                <CardHeader>
-                                    <CardTitle className="text-left text-2xl">{items[currentIndex].title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    {items[currentIndex].details}
-                                </CardContent>
-                                <CardFooter className="flex-col justify-between items-center h-40">
-                                    <Button onClick={handlePrev}>←</Button>
-                                    <Button onClick={handleNext}>→</Button>
-                                </CardFooter>
-                            </Card>
-                        </motion.div>
-                    </AnimatePresence>
+
 
                     {/* Bottom row of smaller cards */}
                     <div className="flex gap-8 flex-wrap">
@@ -138,6 +160,53 @@ export default function Home() {
                                 {cat.name}
                             </Card>
                         ))}
+
+                        {/* Top large project detail card */}
+                        <Card className="flex flex-col justify-between w-[870px] h-[400px] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={items[currentIndex].id}
+                                    initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}
+                                    animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}
+                                    exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}
+                                    transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}
+                                    // className="w-[700px]"
+                                >
+                                    <CardHeader>
+                                        <CardTitle className="text-left text-2xl">{items[currentIndex].title}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        {items[currentIndex].details}
+                                    </CardContent>
+                                </motion.div>
+                            </AnimatePresence>
+                            <Button variant="link"
+                                    type="submit"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        if (activeCategory) {
+                                            handleLearnMore(activeCategory);
+                                        }
+                                    }}>Learn More</Button>
+                            <CardFooter className=" flex justify-between items-center mt-4">
+                                <Button onClick={handlePrev}>←</Button>
+                                {/* Pagination dots */}
+                                <div className="flex items-center gap-2">
+                                    {categories
+                                        .find((cat) => cat.indices.includes(currentIndex))
+                                        ?.indices.map((i) => (
+                                            <div
+                                                key={i}
+                                                className={`w-3 h-3 rounded-full ${
+                                                    i === currentIndex ? "bg-amber-800" : "bg-gray-400"
+                                                } transition-all duration-300`}
+                                            />
+                                        ))}
+                                </div>
+                                <Button onClick={handleNext}>→</Button>
+                            </CardFooter>
+                        </Card>
+
                     </div>
 
                 </div>
