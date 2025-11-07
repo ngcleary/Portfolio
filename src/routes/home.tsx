@@ -106,7 +106,10 @@ export default function Home() {
     }, [currentIndex, activeCategory]);
 
     return (
-        <div className="bg-black min-h-screen w-screen pt-[80px] px-10">
+        <div className="bg-black min-h-screen w-screen pt-[40px] px-10">
+            <div className='text-6xl font-bold text-white mb-5'>
+                Welcome
+            </div>
             <div className="flex gap-9 justify-start pl-14">
                 {/* Left large card with pagination */}
                 <div className='animate-fade-in'>
@@ -180,31 +183,36 @@ export default function Home() {
                                     </CardContent>
                                 </motion.div>
                             </AnimatePresence>
-                            <Button variant="link"
-                                    type="submit"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        if (activeCategory) {
-                                            handleLearnMore(activeCategory);
-                                        }
-                                    }}>Learn More</Button>
-                            <CardFooter className=" flex justify-between items-center mt-4">
-                                <Button onClick={handlePrev}>←</Button>
-                                {/* Pagination dots */}
-                                <div className="flex items-center gap-2">
-                                    {categories
-                                        .find((cat) => cat.indices.includes(currentIndex))
-                                        ?.indices.map((i) => (
-                                            <div
-                                                key={i}
-                                                className={`w-3 h-3 rounded-full ${
-                                                    i === currentIndex ? "bg-amber-800" : "bg-gray-400"
-                                                } transition-all duration-300`}
-                                            />
-                                        ))}
-                                </div>
-                                <Button onClick={handleNext}>→</Button>
-                            </CardFooter>
+
+                            <div className="flex flex-col">
+                                <Button variant="link"
+                                        className="justify-end"
+                                        type="submit"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            if (activeCategory) {
+                                                handleLearnMore(activeCategory);
+                                            }
+                                        }}>Learn More</Button>
+                                <CardFooter className=" flex justify-between items-center mt-4">
+                                    <Button onClick={handlePrev}>←</Button>
+                                    {/* Pagination dots */}
+                                    <div className="flex items-center gap-2">
+                                        {categories
+                                            .find((cat) => cat.indices.includes(currentIndex))
+                                            ?.indices.map((i) => (
+                                                <div
+                                                    key={i}
+                                                    className={`w-3 h-3 rounded-full ${
+                                                        i === currentIndex ? "bg-amber-800" : "bg-gray-400"
+                                                    } transition-all duration-300`}
+                                                />
+                                            ))}
+                                    </div>
+                                    <Button onClick={handleNext}>→</Button>
+                                </CardFooter>
+                            </div>
+
                         </Card>
 
                     </div>
