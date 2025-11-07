@@ -1,54 +1,64 @@
 import profilePic from "../../public/profilepic.png";
-import { useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
 import { motion, AnimatePresence } from "framer-motion";
 
-const projects = [
-    {
-        id: 1,
-        title: "Personal Project",
-        altTitle: "WhatToBring",
-        summary: "I am currently transforming my first ever web development project into an improved",
-        details: (
-            <div className="flex flex-col gap-4">
-                <p>
-                    Detailed overvie.
-                </p>
-                <Button variant="default">See More</Button>
-            </div>
-        )
-    },
-    {
-        id: 2,
-        title: "Project 2",
-        summary: "Short description of Project 2",
-        details: "Detailed overview of Project 2..."
-    },
-    {
-        id: 3,
-        title: "Project 3",
-        summary: "Short description of Project 3",
-        details: "Detailed overview of Project 3..."
-    },
+type Category = {
+    name: string;
+    indices: number[];
+};
 
+const categories = [
+    { name: "Research", indices: [0, 1] },
+    { name: "Software Development", indices: [2, 3, 4] },
+    { name: "AI/ML", indices: [5, 6] },
+    { name: "Hobbies", indices: [7, 8] },
+];
+
+const items = [
+    { id: 0, title: "Microsoft", details: "Details about Hobby 1" },
+    { id: 1, title: "IQP", details: "Details about Hobby 2" },
+    { id: 2, title: "WTB", details: "Project Alpha details" },
+    { id: 3, title: "sfteng", details: "Project Beta details" },
+    { id: 4, title: "look website", details: "Project Gamma details" },
+    { id: 5, title: "lasker morris", details: "School info" },
+    { id: 6, title: "ml", details: "College info" },
+    { id: 7, title: "look walk", details: "College info" },
+    { id: 8, title: "tri", details: "College info" },
 ];
 
 export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // const activeCategory = categories.find((cat) =>
+    //     cat.indices.includes(currentIndex)
+    // );
+
+    const handleCategoryClick = (category: Category) => {
+        setCurrentIndex(category.indices[0]);
+    };
+
     const handleNext = () => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
+        setCurrentIndex((prev) => (prev + 1) % items.length);
     };
 
     const handlePrev = () => {
-        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+        setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
     };
 
+    const prevIndexRef = useRef(currentIndex);
+    const prevCategoryRef = useRef<Category | undefined>(undefined);
 
+    const activeCategory = categories.find((cat) => cat.indices.includes(currentIndex));
+    const isCategoryChange = prevCategoryRef.current?.name !== activeCategory?.name;
 
-    const currentProject = projects[currentIndex];
+    // Track previous index and category
+    useEffect(() => {
+        prevIndexRef.current = currentIndex;
+        prevCategoryRef.current = activeCategory;
+    }, [currentIndex, activeCategory]);
 
     return (
         <div className="bg-black min-h-screen w-screen pt-[80px] px-10">
@@ -90,31 +100,23 @@ export default function Home() {
                     {/* Top large project detail card */}
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={currentProject.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.4 }}
+                            key={items[currentIndex].id}
+                            initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}
+                            animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}
+                            exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}
+                            transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}
+                            className="w-[700px]"
                         >
                             <Card className="w-[870px] h-[400px] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
                                 <CardHeader>
-                                    <CardTitle className="text-left text-2xl">{currentProject.altTitle}</CardTitle>
+                                    <CardTitle className="text-left text-2xl">{items[currentIndex].title}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    {currentProject.details}
+                                    {items[currentIndex].details}
                                 </CardContent>
                                 <CardFooter className="flex-col justify-between items-center h-40">
-                                    {/* Text section at the top of the footer */}
-                                    <div className="flex flex-col items-start mb-4 w-full px-4">
-                                        <div className="text-lg font-semibold">{currentProject.title}</div>
-                                        <div className="text-sm text-gray-700">{currentProject.summary}</div>
-                                    </div>
-
-                                    {/* Arrows section at the very bottom */}
-                                    <div className="flex justify-between w-full px-4">
-                                        <Button onClick={handlePrev}>←</Button>
-                                        <Button onClick={handleNext}>→</Button>
-                                    </div>
+                                    <Button onClick={handlePrev}>←</Button>
+                                    <Button onClick={handleNext}>→</Button>
                                 </CardFooter>
                             </Card>
                         </motion.div>
@@ -123,17 +125,18 @@ export default function Home() {
                     {/* Bottom row of smaller cards */}
                     <div className="flex gap-8 flex-wrap">
 
-                        {projects.map((p, index) => (
-                            <motion.div
-                                key={p.id}
-                                layout
-                                animate={{ opacity: currentIndex === index ? 0.5 : 1 }}
-                                // className="w-40 h-40 bg-white/90 backdrop-blur-sm shadow-xl flex-shrink-0"
+                        {categories.map((cat) => (
+                            <Card
+                                key={cat.name}
+                                className={`p-4 cursor-pointer transition-all ${
+                                    activeCategory?.name === cat.name
+                                        ? "bg-amber-600"
+                                        : "bg-white/90"
+                                }`}
+                                onClick={() => handleCategoryClick(cat)}
                             >
-                                <Card className="w-[269px] h-[154px] bg-white/90 backdrop-blur-sm shadow-xl flex-shrink-0">
-                                    <CardContent className='text-center pt-2'>{p.title}</CardContent>
-                                </Card>
-                            </motion.div>
+                                {cat.name}
+                            </Card>
                         ))}
                     </div>
 
