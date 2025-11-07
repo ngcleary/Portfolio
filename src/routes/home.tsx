@@ -61,12 +61,12 @@ const items = [
                 </div>
             </div>
         ) },
-    { id: 3, title: "sfteng", details: "Project Beta details" },
-    { id: 4, title: "look website", details: "Project Gamma details" },
-    { id: 5, title: "lasker morris", details: "School info" },
-    { id: 6, title: "ml", details: "College info" },
-    { id: 7, title: "look walk", details: "College info" },
-    { id: 8, title: "tri", details: "College info" },
+    { id: 3, title: "sfteng", details: "Project details" },
+    { id: 4, title: "look website", details: "Project details" },
+    { id: 5, title: "lasker morris", details: "Project details" },
+    { id: 6, title: "ml", details: "Project details" },
+    { id: 7, title: "look walk", details: "Project details" },
+    { id: 8, title: "tri", details: "Project details" },
 ];
 
 export default function Home() {
