@@ -106,14 +106,14 @@ export default function Home() {
     }, [currentIndex, activeCategory]);
 
     return (
-        <div className="bg-black min-h-screen w-screen pt-[40px] px-10">
-            <div className='text-6xl font-bold text-white mb-5'>
-                Welcome
-            </div>
-            <div className="flex gap-9 justify-start pl-14">
+        <div className="bg-black min-h-screen w-screen pt-[40px] px-10 box-border">
+            {/*<div className='text-6xl font-bold text-white mb-5'>*/}
+            {/*    Welcome*/}
+            {/*</div>*/}
+            <div className="gap-9 justify-start items-stretch grid grid-cols-[3fr_7fr]">
                 {/* Left large card with pagination */}
-                <div className='animate-fade-in'>
-                    <Card className="w-[600px] h-[600px] bg-white/90 backdrop-blur-sm shadow-xl flex-shrink-0">
+                <div className='animate-fade-in h-[1%] w-[100%]'>
+                    <Card className="bg-white/90">
                         <CardHeader>
                             <CardTitle className="text-left text-2xl">About Me</CardTitle>
                         </CardHeader>
@@ -122,7 +122,7 @@ export default function Home() {
                                 <img
                                     src={profilePic}
                                     alt="My Item"
-                                    className="object-cover rounded-md"/>
+                                    className="object-cover rounded-md w-full h-full"/>
                                 <div>
                                     <div className='text-xl mb-1'>Welcome to my website!</div>
 
@@ -144,7 +144,8 @@ export default function Home() {
                 </div>
 
                 {/* Right column */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 w-[100%]">
+
 
 
                     {/* Bottom row of smaller cards */}
@@ -165,7 +166,7 @@ export default function Home() {
                         ))}
 
                         {/* Top large project detail card */}
-                        <Card className="flex flex-col justify-between w-[870px] h-[400px] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
+                        <Card className="flex flex-col justify-between w-[100%] h-[75%] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={items[currentIndex].id}
