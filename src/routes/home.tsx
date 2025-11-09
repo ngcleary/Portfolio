@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../compone
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
 import { motion, AnimatePresence } from "framer-motion";
+import {Particles} from "@/components/ui/shadcn-io/particles";
 
 type Category = {
     name: string;
@@ -106,25 +107,25 @@ export default function Home() {
     }, [currentIndex, activeCategory]);
 
     return (
-        <div className="bg-black min-h-screen w-screen pt-[40px] px-10 box-border">
+        <div className="bg-black min-h-screen w-screen p-10 box-border relative z-10">
             {/*<div className='text-6xl font-bold text-white mb-5'>*/}
             {/*    Welcome*/}
             {/*</div>*/}
             <div className="gap-9 justify-start items-stretch grid grid-cols-[3fr_7fr]">
                 {/* Left large card with pagination */}
-                <div className='animate-fade-in h-[1%] w-[100%]'>
-                    <Card className="bg-white/90">
+                <div className='animate-fade-in h-[100%] w-[100%]'>
+                    <Card className="bg-white/90 h-full">
                         <CardHeader>
-                            <CardTitle className="text-left text-2xl">About Me</CardTitle>
+                            <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="flex gap-8">
                                 <img
                                     src={profilePic}
                                     alt="My Item"
-                                    className="object-cover rounded-md w-full h-full"/>
+                                    className="object-cover rounded-md w-full h-full "/>
                                 <div>
-                                    <div className='text-xl mb-1'>Welcome to my website!</div>
+                                    <div className='text-xl mb-1'>About me!</div>
 
                                     <div className='mb-1'>
                                         My name is Nora Cleary, I currently study at Worcester Polytechnic Institute in
@@ -132,13 +133,17 @@ export default function Home() {
                                     </div>
 
                                     <div className='mb-1'>
-                                        more infor.
+
                                     </div>
                                 </div>
                             </div>
                         </CardContent>
-                        <CardFooter className="flex flex-col justify-between items-center h-40">
-
+                        <CardFooter >
+                            <ul className="list-[square] text-left pl-8">
+                                <li>Java, Typescript, Javascript, Python, SQL, C</li>
+                                <li>Related courses: Software Engineering, Artificial Intelligence, Machine Learning, Database Systems</li>
+                                <li></li>
+                            </ul>
                         </CardFooter>
                     </Card>
                 </div>
@@ -220,6 +225,14 @@ export default function Home() {
 
                 </div>
             </div>
+            <Particles
+                className="absolute inset-0 -z-10 box-border"
+                quantity={100}
+                ease={80}
+                staticity={50}
+                color="#ffffff"
+                size={0.8}
+            />
         </div>
     );
 }
