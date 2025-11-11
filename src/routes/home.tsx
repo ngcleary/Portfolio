@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
 import { motion, AnimatePresence } from "framer-motion";
 import {Particles} from "@/components/ui/shadcn-io/particles";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 
 type Category = {
     name: string;
@@ -19,6 +20,10 @@ const categories = [
     { name: "Hobbies", indices: [7, 8] },
 ];
 
+const softEngImages = [
+    "../../public/FullOldWTB-1.png",
+    "../../public/profilepic.png",
+]
 const items = [
     { id: 0, title: "AI Research Project - Microsoft", details: (
         <div>
@@ -56,10 +61,30 @@ const items = [
                 {/*    Fall 2025 - Present*/}
                 {/*</div>*/}
                 <div className="flex flex-row gap-6 -mt-5">
-                    <img
-                        src="../../public/FullOldWTB-1.png"
-                        alt="WhatToBring old"
-                        className="object-cover rounded-md w-[70%] h-full mt-5 border-black border-2 "/>
+                    {/*<img*/}
+                    {/*    src="../../public/FullOldWTB-1.png"*/}
+                    {/*    alt="WhatToBring old"*/}
+                    {/*    className="object-cover rounded-md w-[70%] h-full mt-5 border-black border-2 "/>*/}
+                    <div className="flex justify-center items-center w-full">
+                        <Carousel className="w-full">
+                            <CarouselContent>
+                                {softEngImages.map((src, index) => (
+                                    <CarouselItem key={index} className="flex justify-center">
+                                        <div className="relative w-full">
+                                            <img
+                                                src={src}
+                                                alt={`Slide ${index + 1}`}
+
+                                                className="object-cover rounded-xl"
+                                            />
+                                        </div>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </Carousel>
+                    </div>
 
                     <div className="text-left mt-5">
                         In 2022, I created WhatToBring, my first ever web development project using Javascript, HTML, and CSS paired with Express, Node.js, and MongoDB.
