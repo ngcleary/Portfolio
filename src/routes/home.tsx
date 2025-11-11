@@ -21,17 +21,16 @@ const categories = [
 ];
 
 const softEngImages = [
-    "../../public/FullOldWTB-1.png",
-    "../../public/profilepic.png",
+    "../../public/resizeWTBOld.png",
+    "../../public/WTBLogin.jpg",
+    "../../public/WTBSignup.jpg",
+    "../../public/WTBHome.jpg",
 ]
 const items = [
-    { id: 0, title: "AI Research Project - Microsoft", details: (
+    { id: 0, title: "Microsoft Collaboration | Present", details: (
         <div>
-            <div className="text-md text-left -mt-5">
-                Fall 2025 – Present
-            </div>
-            <div className="text-left mt-5">
-                I currently have the oppurtunity to work closely with a project manager from Microsoft to investigate
+            <div className="text-left ">
+                I currently have the opportunity to work closely with a project manager from Microsoft to investigate
                 advanced Natural Language Processing (NLP) and GenAI techniques. Myself and a team of three others are
                 designing and developing an agentic RAG system with retrieval quality as the top priority. We are designing and testing
                 various frameworks to improve decision making and context optimization, while ensuring the system can be easily learned
@@ -40,19 +39,37 @@ const items = [
         </div>
 
         ) },
-    { id: 1, title: "Brewery Wastewater Research Project - Albania", details: (
+    { id: 1, title: "Brewery Water Stewardship in Albania | August 2024 - December 2024", details: (
+
             <div>
-                <div className="text-md text-left -mt-5">
-                    August 2024 - December 2024
+                <div className="flex flex-row justify-end">
+                    <img
+                        src="../../public/Recognition%20logo%20(1).png"
+                        alt='shukalb logo'
+                        className="object-cover rounded-xl -mt-24"
+                    />
                 </div>
-                <div className="text-left mt-5">
-                    In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
-                    weeks to complete a social science project. I worked on a team with three other students and we worked with
-                    SHUKALB, a non-profit water management and sewage organization in Albania.
-                    In August 2024, I began working with three of my peers to develop a pilot water stewardship certification program
-                    for Albanian craft brewers. In October we began our 2 month stay in Tirana, Albania where we worked closely with
-                    Albanian water professionals and local craft brewers.
+
+                <div>
+                    <div className="flex flex-row gap-6 -mt-5">
+
+                        <div className="text-left mt-5">
+                            In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
+                            weeks to complete a social science project. I worked on a team with three other students and we worked with
+                            SHUKALB, a non-profit water management and sewage organization in Albania.
+                            In August 2024, I began working with three of my peers to develop a pilot water stewardship certification program
+                            for Albanian craft brewers. In October we began our 2 month stay in Tirana, Albania where we worked closely with
+                            Albanian water professionals and local craft brewers.
+                        </div>
+
+                    </div>
+
+
+                    <div className="text-left mt-5">
+                        read more and such
+                    </div>
                 </div>
+
             </div>)
     },
     { id: 2, title: "WhatToBring | Fall 2025 - Present", details: (
@@ -62,11 +79,11 @@ const items = [
                 {/*</div>*/}
                 <div className="flex flex-row gap-6 -mt-5">
                     {/*<img*/}
-                    {/*    src="../../public/FullOldWTB-1.png"*/}
+                    {/*    src="../../public/-1.png"*/}
                     {/*    alt="WhatToBring old"*/}
                     {/*    className="object-cover rounded-md w-[70%] h-full mt-5 border-black border-2 "/>*/}
-                    <div className="flex justify-center items-center w-full">
-                        <Carousel className="w-full">
+                    <div className="mt-5 flex justify-center items-center w-[250%] h-full">
+                        <Carousel className="w-full ">
                             <CarouselContent>
                                 {softEngImages.map((src, index) => (
                                     <CarouselItem key={index} className="flex justify-center">
@@ -75,14 +92,15 @@ const items = [
                                                 src={src}
                                                 alt={`Slide ${index + 1}`}
 
-                                                className="object-cover rounded-xl"
+                                                className="object-cover rounded-xl "
                                             />
                                         </div>
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            {/*fix*/}
+                            <CarouselPrevious className="left-0.5 top-1/2 translate-y-24 " />
+                            <CarouselNext className="right-2 top-1/2 translate-y-24 " />
                         </Carousel>
                     </div>
 
@@ -95,10 +113,7 @@ const items = [
                             I have gained, and using the experience to improve my full-stack development skills.
                         </div>
                     </div>
-
-
                 </div>
-
 
 
                 <div className="text-left mt-5">
@@ -108,12 +123,12 @@ const items = [
                 </div>
             </div>
         ) },
-    { id: 3, title: "sfteng", details: "Project details" },
-    { id: 4, title: "look website", details: "Project details" },
+    { id: 3, title: "Brigham & Women’s Hospital | Spring 2024", details: "Project details" },
+    { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: "Project details" },
     { id: 5, title: "lasker morris", details: "Project details" },
     { id: 6, title: "ml", details: "Project details" },
-    { id: 7, title: "look walk", details: "Project details" },
-    { id: 8, title: "tri", details: "Project details" },
+    { id: 7, title: "Look. Foundation Walk | October 2025", details: "Project details" },
+    { id: 8, title: "Cohasset Triathlon", details: "Project details" },
 ];
 
 export default function Home() {
@@ -181,7 +196,7 @@ export default function Home() {
                                     <img
                                         src={profilePic}
                                         alt="My Item"
-                                        className="object-cover rounded-md w-full h-full max-w-full"/>
+                                        className="object-cover rounded-md w-full h-full max-w-full border-black border-2"/>
                                     <div>
                                         <div className='text-xl mb-1'>About me!</div>
 
@@ -194,6 +209,7 @@ export default function Home() {
 
                                         </div>
                                     </div>
+
                                 </div>
                             </CardContent>
                             <CardFooter >
@@ -217,7 +233,7 @@ export default function Home() {
                             {categories.map((cat) => (
                                 <Card
                                     key={cat.name}
-                                    className={`p-4 cursor-pointer transition-all font-medium w-[22.7%] justify-around text-center ${
+                                    className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
                                         activeCategory?.name === cat.name
                                             ? "bg-amber-600"
                                             : "bg-white/90"
