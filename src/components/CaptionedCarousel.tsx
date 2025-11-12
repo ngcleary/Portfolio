@@ -40,17 +40,17 @@ export default function CaptionedCarousel({ slides }: { slides: Slide[] }) {
     }, [api]);
 
     return (
-        <div className="w-full max-w-2xl mx-auto flex flex-col items-center">
+        <div className="w-full mx-auto flex flex-col items-center">
             <Carousel setApi={setApi} className="w-full">
                 <CarouselContent>
                     {slides.map((slide, index) => (
                         <CarouselItem key={index} className="flex justify-center">
-                            <div className="relative w-full h-[350px]">
+                            <div className="">
                                 <img
                                     src={slide.src}
                                     alt={`Slide ${index + 1}`}
 
-                                    className="object-cover rounded-xl"
+                                    className="object-cover rounded-xl w-full h-full max-w-full"
                                 />
                             </div>
                         </CarouselItem>
