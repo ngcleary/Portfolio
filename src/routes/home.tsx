@@ -10,6 +10,7 @@ import {Particles} from "@/components/ui/shadcn-io/particles";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
+import CaptionedCarousel from "@/components/CaptionedCarousel.tsx";
 
 type Category = {
     name: string;
@@ -21,6 +22,12 @@ const categories = [
     { name: "Software Development", indices: [2, 3, 4] },
     { name: "AI/ML", indices: [5, 6] },
     { name: "Hobbies", indices: [7, 8] },
+];
+
+//images
+const BGH = [
+    { src: "../../public/WTBLogin.jpg", caption: "Team meeting during sprint planning" },
+    { src: "../../public/WTBLogin.jpg", caption: "Demo day at Brigham Hospital" },
 ];
 const softEngImages = [
     "../../public/resizeWTBOld.png",
@@ -124,26 +131,75 @@ const items = [
 
             </div>)
     },
-    { id: 2, title: "WhatToBring | Fall 2025 - Present", details: (
+    { id: 2, title: "Brigham & Women’s Hospital | Spring 2024", details: (
+        <div>
+            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Leadership
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Agile Methodology
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Jira
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    10-person Team
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    AWS
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Docker
+                </Badge>
+            </div>
+            <div className="">
+                In collaboration with Brigham and Women's Hospital, I lead a team of 9 other software developers through 7
+                one-week sprints to design a professional, branded website for employees and patients of the Brigham and Women's hospitals.
+            </div>
+                <div className="mt-5">
+                    <CaptionedCarousel slides={BGH} />
+                    <div className="text-left mt-4">...</div>
+                </div>
+
+
+                <div className="">
+                    As Lead Software Engineer, I guided my team through the full Agile development process, facilitating sprint-planning meetings
+                    where we created user stories, designed storyboards, and assigned story points using planning poker before organizing our tasks in Jira.
+                    I emphasized aligning responsibilities with each team member’s strengths while encouraging everyone to contribute to both frontend and
+                    backend development to grow as well-rounded programmers. Throughout each sprint, I monitored progress, ensured adherence to standardized
+                    GitHub workflows, and provided hands-on support where needed — implementing frontend, backend, and algorithmic components.
+                    We concluded each cycle with sprint reflections to evaluate progress and continuously improve our process.
+                </div>
+                <div className="">
+                    Main features
+                    - Auth0
+                    - request pages
+                    - external map
+                    - voice commans
+                    - internal map - map editor
+                </div>
+
+            </div>
+
+        ) },
+    { id: 3, title: "WhatToBring | Present", details:
             <div>
                 <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                         Full-Stack
                     </Badge>
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                        REST API
-                    </Badge>
-                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                         Personal Project
                     </Badge>
 
                 </div>
-                <div className="flex flex-row gap-6 -mt-5">
-                    <div className="mt-5 flex justify-center items-center w-[250%] h-full">
+                <div className="grid grid-cols-[7fr_3fr] gap-6 -mt-5">
+                    <div className="mt-5 justify-center items-center h-full">
                         <Carousel className="w-full ">
                             <CarouselContent>
                                 {softEngImages.map((src, index) => (
-                                    <CarouselItem key={index} className="flex justify-center">
+                                    <CarouselItem key={index} className=" justify-center">
                                         <div className="relative w-full">
                                             <img
                                                 src={src}
@@ -163,11 +219,10 @@ const items = [
 
                     <div className="text-left mt-5">
                         In 2022, I created WhatToBring, my first ever web development project using Javascript, HTML, and CSS paired with Express, Node.js, and MongoDB.
-                        WhatToBring allows users to sign in using GitHub, add items to the list to indicate they are bringing it, add items to a suggestion list.
+                        WhatToBring allows users to sign in using GitHub, add items to the list to indicate they are bringing it or add items to a suggestion list.
 
                         <div className="text-left mt-5">
-                            With the skills I learned from my Webware and Software Engineering courses, I have decided to build WhatToBring again, using the new knowledge
-                            I have gained, and using the experience to improve my full-stack development skills.
+                            With the skills I learned throughout my courses, I have decided to build WhatToBring again.
                         </div>
                     </div>
                 </div>
@@ -179,28 +234,7 @@ const items = [
                     database, using Prisma ORM to manage and query user data efficiently.
                 </div>
             </div>
-        ) },
-    { id: 3, title: "Brigham & Women’s Hospital | Spring 2024", details:     <div>
-            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Leadership
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Agile Methodology
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    10-person Team
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    AWS
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Docker
-                </Badge>
-
-            </div>
-            BGH
-        </div>},
+    },
     { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
             <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
