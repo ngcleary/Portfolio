@@ -22,20 +22,19 @@ const categories = [
     { name: "AI/ML", indices: [5, 6] },
     { name: "Hobbies", indices: [7, 8] },
 ];
-
 const softEngImages = [
     "../../public/resizeWTBOld.png",
     "../../public/WTBLogin.jpg",
     "../../public/WTBSignup.jpg",
     "../../public/WTBHome.jpg",
 ]
-
 const LookWalkImages = [
     "../../public/LookGoat.JPG",
     "../../public/LookTable.JPG",
     "../../public/LookWalking.JPG",
     "../../public/LookTable2.JPG",
 ]
+
 const items = [
     { id: 0, title: "Microsoft Collaboration | Present", details: (
         <div>
@@ -226,12 +225,40 @@ const items = [
             <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                 AI
             </Badge>
+        </div>
+        <div className="grid grid-cols-2 gap-6">
+            <div className="grid-row-2">
+                <img
+                    src="../../public/Gabor.png"
+                    alt='Swim'
+                    className="object-cover rounded-xl "
+                />
+                <div className="text-left mt-2">
+                    Game visualization courtesy of <a
+                        href="https://jake-molnia.github.io/CS4341-referee/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-800 hover:underline"
+                    >Jake Molnia's referee program.
+                    </a>
+
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    Lasker Morris (also called Ten Men's Morris) in an ancient mill game of strategy. I worked to create a Java-based
+                    AI model to master the game, using the minimax game-playing algorithm with alpha-beta pruning and iterative descent.
+                </div>
+                <div className="text-left mt-2">
+                    This was my first time working with AI strategies and algorithms, and I enjoyed testing the heuristics to improve
+                    my algorithm's performance. To understand how large, general-knowledge models compare to specifically designed algorithms,
+                    I made a second model powered by Google Gemini LLM API and watched as the minimax model beat Gemini in every single round.
+                </div>
+            </div>
 
         </div>
-        A game between two instances of Gabor, visualized with Jake Molnia's Lasker Morris Referee program.
-        A Java-based AI model which uses the minimax game-playing algorithm with alpha-beta
-        pruning and iterative descent to play the ancient strategy game of Lasker Morris using Jake Molnia's Lasker Morris Referee Program https://jake-molnia.github.io/CS4341-referee/
-        A second model which decides its moves using the Google Gemini LLM API is also included, allowing for comparison between minimax and LLM-driven gameplay.
+
     </div>},
     { id: 6, title: "ml", details: "Project details" },
     { id: 7, title: "Look. Foundation Walk | October 2025", details:
@@ -397,9 +424,6 @@ export default function Home() {
     return (
         <div className="bg-black min-h-screen w-full box-border relative z-10">
             <div className="p-2">
-                {/*<div className='text-6xl font-bold text-white mb-5'>*/}
-                {/*    Welcome*/}
-                {/*</div>*/}
                 {/*<div className="gap-9 justify-start items-stretch grid grid-cols-[3fr_7fr]">*/}
                 {/*<div className="gap-9 justify-start items-stretch grid grid-cols-[3fr_7fr] max-w-full">*/}
                 <div className="grid grid-cols-[3fr_7fr] gap-9 p-10 h-full items-stretch">
@@ -510,15 +534,6 @@ export default function Home() {
                                 {/*</Card>*/}
 
                                 <div className="flex flex-col">
-                                    {/*<Button variant="link"*/}
-                                    {/*        className="justify-end"*/}
-                                    {/*        type="submit"*/}
-                                    {/*        onClick={(e) => {*/}
-                                    {/*            e.preventDefault();*/}
-                                    {/*            if (activeCategory) {*/}
-                                    {/*                handleLearnMore(activeCategory);*/}
-                                    {/*            }*/}
-                                    {/*        }}>Learn More</Button>*/}
                                     <CardFooter className=" flex justify-between items-center mt-4">
                                         <Button onClick={handlePrev}>←</Button>
                                         {/* Pagination dots */}
