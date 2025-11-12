@@ -2,10 +2,7 @@ import './App.css'
 import PageNotFound from "./routes/PegeNotFound.tsx";
 import {createHashRouter, RouterProvider} from "react-router-dom";
 import Home from "./routes/home.tsx";
-import SoftwareDevelopment from "./routes/softwareDevelopment.tsx";
-import Research from "./routes/research.tsx";
-import Hobbies from "./routes/Hobbies.tsx";
-import AI from "./routes/AI.tsx";
+
 
 function App() {
     const router = createHashRouter([
@@ -14,10 +11,6 @@ function App() {
             errorElement: <PageNotFound />,
             children: [
                 { index: true, element: <Home /> },
-                { path: 'softwaredevelopment', element: <SoftwareDevelopment /> },
-                { path: 'research', element: <Research />},
-                { path: 'hobbies', element: <Hobbies />},
-                { path: 'AI/ML', element: <AI />}
             ],
         },
     ]);

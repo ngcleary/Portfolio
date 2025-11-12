@@ -1,7 +1,7 @@
 import profilePic from "../../public/profilepic.png";
 import {useEffect, useRef, useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import { Linkedin, Github } from "lucide-react";
+import {Linkedin, Github} from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {Particles} from "@/components/ui/shadcn-io/particles";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
+import {Badge} from "@/components/ui/badge.tsx";
 
 type Category = {
     name: string;
@@ -38,6 +39,27 @@ const LookWalkImages = [
 const items = [
     { id: 0, title: "Microsoft Collaboration | Present", details: (
         <div>
+            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Azure AI Foundry
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    LangChain
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Agentic RAG
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    NLP
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Web-Scrapping
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Fine-Tuning
+                </Badge>
+
+            </div>
             <div className="text-left ">
                 I currently have the opportunity to work closely with a project manager from Microsoft to investigate
                 advanced Natural Language Processing (NLP) and GenAI techniques. Myself and a team of three others are
@@ -45,12 +67,28 @@ const items = [
                 various frameworks to improve decision making and context optimization, while ensuring the system can be easily learned
                 by users and further adapted for future improvements.
             </div>
+            <ul>
+                <li>Azure AI Foundry</li>
+                <li>LangChain</li>
+                <li>Ragas</li>
+            </ul>
         </div>
 
         ) },
     { id: 1, title: "Brewery Water Stewardship in Albania | August 2024 - December 2024", details: (
-
             <div>
+                <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        ALbania
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        REST API
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Personal Project
+                    </Badge>
+
+                </div>
                 <div className="flex flex-row justify-end">
                     <img
                         src="../../public/Recognition%20logo%20(1).png"
@@ -89,14 +127,19 @@ const items = [
     },
     { id: 2, title: "WhatToBring | Fall 2025 - Present", details: (
             <div>
-                {/*<div className="text-md text-left -mt-5">*/}
-                {/*    Fall 2025 - Present*/}
-                {/*</div>*/}
+                <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Full-Stack
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        REST API
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Personal Project
+                    </Badge>
+
+                </div>
                 <div className="flex flex-row gap-6 -mt-5">
-                    {/*<img*/}
-                    {/*    src="../../public/-1.png"*/}
-                    {/*    alt="WhatToBring old"*/}
-                    {/*    className="object-cover rounded-md w-[70%] h-full mt-5 border-black border-2 "/>*/}
                     <div className="mt-5 flex justify-center items-center w-[250%] h-full">
                         <Carousel className="w-full ">
                             <CarouselContent>
@@ -138,14 +181,75 @@ const items = [
                 </div>
             </div>
         ) },
-    { id: 3, title: "Brigham & Women’s Hospital | Spring 2024", details: "Project details" },
-    { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: "Project details" },
-    { id: 5, title: "lasker morris", details: "Project details" },
+    { id: 3, title: "Brigham & Women’s Hospital | Spring 2024", details:     <div>
+            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Leadership
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Agile Methodology
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    10-person Team
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    AWS
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Docker
+                </Badge>
+
+            </div>
+            BGH
+        </div>},
+    { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
+            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Leadership
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Project Management
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Javascript
+                </Badge>
+
+            </div>
+            BGH
+        </div>},
+    { id: 5, title: "Lasker Morris AI | February 2025", details:
+    <div>
+        <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+            <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                Java
+            </Badge>
+            <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                AI
+            </Badge>
+
+        </div>
+        A game between two instances of Gabor, visualized with Jake Molnia's Lasker Morris Referee program.
+        A Java-based AI model which uses the minimax game-playing algorithm with alpha-beta
+        pruning and iterative descent to play the ancient strategy game of Lasker Morris using Jake Molnia's Lasker Morris Referee Program https://jake-molnia.github.io/CS4341-referee/
+        A second model which decides its moves using the Google Gemini LLM API is also included, allowing for comparison between minimax and LLM-driven gameplay.
+    </div>},
     { id: 6, title: "ml", details: "Project details" },
     { id: 7, title: "Look. Foundation Walk | October 2025", details:
             <div>
-                <div className="text-left -mt-5">
-                    On October 3rd, I had the opportunity to organize and host a PANS/PANDAS Awareness Walk on
+                {/* Skill / Keyword Badges */}
+                <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Leadership
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Event Planning
+                    </Badge>
+                    <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                        Advocacy
+                    </Badge>
+                </div>
+                <div className="text-left">
+                    This October, I had the opportunity to organize and host a PANS/PANDAS Awareness Walk on
                     the Worcester Polytechnic Institute campus, in collaboration with the WPI Campus Recreation Advisory
                     Council,
                     the WPI Center for Well-Being, and the Look. Foundation, a nonprofit supporting families affected
@@ -166,10 +270,7 @@ const items = [
                     nationwide.
                 </div>
 
-            {/*</div>*/}
-
-            {/*<div className="flex flex-row gap-6 -mt-5">*/}
-            <div className="grid grid-cols-[6fr_4fr] gap-6">
+            <div className="grid grid-cols-[5fr_5fr] gap-6">
                 <div className="mt-5 justify-center items-center h-full">
                     <Carousel className="w-full ">
                         <CarouselContent>
@@ -191,35 +292,33 @@ const items = [
                         <CarouselNext className="right-2 top-1/2 translate-y-24 " />
                     </Carousel>
                 </div>
-                <div className="text-left mt-5">
-                    Growing up, I witnessed my cousins endure the confusing, isolating and devastating effects of PANS/PANDAS.
-                    That experience, along with my internship at the Look. Foundation, motivated me to help raise awareness for these often misunderstood
-                    conditions.
-
-                    PANS (Pediatric Acute-Onset Neuropsychiatric Syndrome) and PANDAS (Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcus) are medical conditions (often infection-triggered, like strep, Lyme, or even COVID) that inflame the brain.
-                    The symptoms can look exactly like mental illness: sudden OCD, eating restriction, rage, tics, depression, even suicidal ideations. When misdiagnosed, the consequences are devastating for both the child and the family.
+                <div className="text-left mt-2">
+                    <div className="text-left mt-1">
+                        Growing up, I witnessed my cousins endure the confusing, isolating and devastating effects of PANS/PANDAS.
+                        That experience, along with my internship at the Look. Foundation, motivated me to help raise awareness
+                        for these often misunderstood
+                        conditions.
+                    </div>
+                    <div className="text-left mt-2">
+                        PANS and PANDAS are medical conditions that inflame the brain.
+                        The symptoms can look exactly like mental illness: sudden OCD, eating restriction, rage, tics, depression,
+                        even suicidal ideations.
+                    </div>
+                    <div className="text-left mt-2">
+                        Hosting this event taught me a lot about organizing community initiatives and the importance of sparking conversation
+                        about mental health. Seeing students engage, ask questions, and share what they learned was incredibly meaningful.
+                    </div>
                 </div>
             </div>
-            <div className="text-left mt-5">
-                Hosting this event taught me a lot about organizing community initiatives and the importance of sparking conversation about mental health.
-                Seeing students engage, ask questions, and share what they learned was incredibly meaningful.
-            </div>
-
-
+                <div className="text-left mt-5">
+                    Learn more about the Look. Foundation
+                </div>
         </div> },
     { id: 8, title: "Cohasset Triathlon", details: "Project details" },
 ];
 
 export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    // const navigate = useNavigate();
-
-    // const handleLearnMore = (category: Category)=> {
-    //     const slash = '/' ;
-    //     const page = slash.concat(category.name.trim().toLowerCase().replace(/\s+/g, ""));
-    //     console.log(page);
-    //     navigate(page)
-    // }
 
     const handleCategoryClick = (category: Category) => {
         setCurrentIndex(category.indices[0]);
@@ -266,7 +365,7 @@ export default function Home() {
 
                 {/* Left large card with pagination */}
                     <div className='animate-fade-in h-[100%] w-[100%]'>
-                        <Card className="bg-white/90 h-full">
+                        <Card className="bg-white/90">
                             <CardHeader>
                                 <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
                             </CardHeader>
