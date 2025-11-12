@@ -314,7 +314,48 @@ const items = [
                     Learn more about the Look. Foundation
                 </div>
         </div> },
-    { id: 8, title: "Cohasset Triathlon", details: "Project details" },
+    { id: 8, title: "Cohasset Triathlon", details:
+    <div>
+        {/* Skill / Keyword Badges */}
+        <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+            <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                Advocacy
+            </Badge>
+            <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                Community
+            </Badge>
+            <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                Fundraising
+            </Badge>
+        </div>
+        <div className="grid grid-cols-3 gap-6">
+            <img
+                src="../../public/TriSwim.JPG"
+                alt='Swim'
+                className="object-cover rounded-xl "
+            />
+            <img
+                src="../../public/TriBike.JPG"
+                alt='Bike'
+                className="object-cover rounded-xl "
+            />
+            <img
+                src="../../public/TriRun.JPG"
+                alt='Run'
+                className="object-cover rounded-xl "
+            />
+        </div>
+        <div className="text-left mt-5">
+            In 2023 I completed my first Triathlon with Team Look.! I have always been a long distance runner, so I was
+            excited for this new challenge. In support of my 3 cousins with PANDAS, I began training and fundraising in January, motivated
+            to raise money and awareness for the Look. Foundation.
+        </div>
+        <div className="text-left mt-2">
+            This event has become an annual tradition for my family, with participants growing each year. As of 2025, we had 11 family members
+            competing - including my mom, sister, many cousins, and my uncle! This has become my favorite tradition as it brings my family together
+            and pushes me to try new.
+        </div>
+    </div>},
 ];
 
 export default function Home() {
