@@ -1,12 +1,14 @@
 import profilePic from "../../public/profilepic.png";
 import {useEffect, useRef, useState } from "react";
 // import { useNavigate } from "react-router-dom";
+import { Linkedin, Github } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
 import { motion, AnimatePresence } from "framer-motion";
 import {Particles} from "@/components/ui/shadcn-io/particles";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel.tsx";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 
 type Category = {
     name: string;
@@ -25,6 +27,13 @@ const softEngImages = [
     "../../public/WTBLogin.jpg",
     "../../public/WTBSignup.jpg",
     "../../public/WTBHome.jpg",
+]
+
+const LookWalkImages = [
+    "../../public/LookGoat.JPG",
+    "../../public/LookTable.JPG",
+    "../../public/LookWalking.JPG",
+    "../../public/LookTable2.JPG",
 ]
 const items = [
     { id: 0, title: "Microsoft Collaboration | Present", details: (
@@ -55,11 +64,17 @@ const items = [
 
                         <div className="text-left mt-5">
                             In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
-                            weeks to complete a social science project. I worked on a team with three other students and we worked with
-                            SHUKALB, a non-profit water management and sewage organization in Albania.
-                            In August 2024, I began working with three of my peers to develop a pilot water stewardship certification program
-                            for Albanian craft brewers. In October we began our 2 month stay in Tirana, Albania where we worked closely with
-                            Albanian water professionals and local craft brewers.
+                            weeks to complete a social science project. My team worked with SHUKALB, a non-profit water management and
+                            sewage organization in Albania, to develop a pilot water stewardship certificate program tailored to Albanian
+                            craft brewers. This process included an intital 7 week research period before getting to Tirana, where the team
+                            interviewed local brewers and wastewater professionals to get an understanding of the industry, as well as the problem.
+                        </div>
+                        <div className="text-left -mt-5">
+                            In Albania we had the privilege to speak to all seven craft brewers in the country, understanding their needs and
+                            learning the best ways to support them in wastewater management. From these interviews we developed a 'self-assessment
+                            score card' for brewers to asses there wastewater practices at any time. This card, powered by KoboToolbox, highlighted
+                            the exact areas where brewers could improve, leading them directly to the appropriate section of our 'suggested practices'
+                            website, where we outline detailed practices for brewers to improve certain areas of their wastewater process.
                         </div>
 
                     </div>
@@ -127,7 +142,71 @@ const items = [
     { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: "Project details" },
     { id: 5, title: "lasker morris", details: "Project details" },
     { id: 6, title: "ml", details: "Project details" },
-    { id: 7, title: "Look. Foundation Walk | October 2025", details: "Project details" },
+    { id: 7, title: "Look. Foundation Walk | October 2025", details:
+            <div>
+                <div className="text-left -mt-5">
+                    On October 3rd, I had the opportunity to organize and host a PANS/PANDAS Awareness Walk on
+                    the Worcester Polytechnic Institute campus, in collaboration with the WPI Campus Recreation Advisory
+                    Council,
+                    the WPI Center for Well-Being, and the Look. Foundation, a nonprofit supporting families affected
+                    by{""}
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger className="inline-block bg-inherit underline decoration-dotted px-1 rounded">
+                                PANS/PANDAS
+                            </TooltipTrigger>
+                            <TooltipContent >
+                                <p>
+                                    Pediatric Acute-Onset Neuropsychiatric Syndrome / Pediatric
+                                    Autoimmune Neuropsychiatric Disorders Associated with Streptococcus
+                                </p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>{""}
+                    nationwide.
+                </div>
+
+            {/*</div>*/}
+
+            {/*<div className="flex flex-row gap-6 -mt-5">*/}
+            <div className="grid grid-cols-[6fr_4fr] gap-6">
+                <div className="mt-5 justify-center items-center h-full">
+                    <Carousel className="w-full ">
+                        <CarouselContent>
+                            {LookWalkImages.map((src, index) => (
+                                <CarouselItem key={index} className="flex justify-center">
+                                    <div className="relative w-full">
+                                        <img
+                                            src={src}
+                                            alt={`Slide ${index + 1}`}
+
+                                            className="object-cover rounded-xl "
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        {/*fix*/}
+                        <CarouselPrevious className="left-0.5 top-1/2 translate-y-24 " />
+                        <CarouselNext className="right-2 top-1/2 translate-y-24 " />
+                    </Carousel>
+                </div>
+                <div className="text-left mt-5">
+                    Growing up, I witnessed my cousins endure the confusing, isolating and devastating effects of PANS/PANDAS.
+                    That experience, along with my internship at the Look. Foundation, motivated me to help raise awareness for these often misunderstood
+                    conditions.
+
+                    PANS (Pediatric Acute-Onset Neuropsychiatric Syndrome) and PANDAS (Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcus) are medical conditions (often infection-triggered, like strep, Lyme, or even COVID) that inflame the brain.
+                    The symptoms can look exactly like mental illness: sudden OCD, eating restriction, rage, tics, depression, even suicidal ideations. When misdiagnosed, the consequences are devastating for both the child and the family.
+                </div>
+            </div>
+            <div className="text-left mt-5">
+                Hosting this event taught me a lot about organizing community initiatives and the importance of sparking conversation about mental health.
+                Seeing students engage, ask questions, and share what they learned was incredibly meaningful.
+            </div>
+
+
+        </div> },
     { id: 8, title: "Cohasset Triathlon", details: "Project details" },
 ];
 
@@ -192,17 +271,17 @@ export default function Home() {
                                 <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="flex gap-8">
+                                <div className="flex flex-col xl:flex-row gap-8">
                                     <img
                                         src={profilePic}
                                         alt="My Item"
-                                        className="object-cover rounded-md w-full h-full max-w-full border-black border-2"/>
+                                        className="object-cover rounded-md w-full xl:w-[50%] h-full max-w-full border-black border-2"/>
                                     <div>
-                                        <div className='text-xl mb-1'>About me!</div>
+                                        <div className="text-xl mb-1 -mt-2 ">About me!</div>
 
                                         <div className='mb-1'>
-                                            My name is Nora Cleary, I currently study at Worcester Polytechnic Institute in
-                                            Worcester, Massachusetts, working towards a Bachelor's Degree in Computer Science.
+                                            My name is Nora Cleary, I currently study at Worcester Polytechnic Institute
+                                            working towards a Bachelor's Degree in Computer Science.
                                         </div>
 
                                         <div className='mb-1'>
@@ -212,12 +291,37 @@ export default function Home() {
 
                                 </div>
                             </CardContent>
-                            <CardFooter >
-                                <ul className="list-[square] text-left pl-8">
+                            <CardFooter className="flex flex-col items-center gap-2">
+                                <ul className="list-[square] text-left pl-8 mb-3">
                                     <li>Java, Typescript, Javascript, Python, SQL, C</li>
-                                    <li>Related courses: Software Engineering, Artificial Intelligence, Machine Learning, Database Systems</li>
-                                    <li>n</li>
+                                    <li>
+                                        Related courses: Software Engineering, Artificial Intelligence,
+                                        Machine Learning, Database Systems
+                                    </li>
+                                    <li>Azure AI Foundry</li>
                                 </ul>
+
+                                <div className="flex flex-col sm:flex-row gap-3 pl-8 justify-center items-center">
+                                    <a
+                                        href="https://www.linkedin.com/in/nora-cleary"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-gray-800 hover:underline"
+                                    >
+                                        <Linkedin size={18} />
+                                        LinkedIn
+                                    </a>
+
+                                    <a
+                                        href="https://github.com/ngcleary"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-gray-800 hover:underline"
+                                    >
+                                        <Github size={18} />
+                                        GitHub
+                                    </a>
+                                </div>
                             </CardFooter>
                         </Card>
                     </div>
