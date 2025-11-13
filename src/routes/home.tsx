@@ -25,6 +25,14 @@ const categories = [
 ];
 
 //images
+const albania = [
+    "../../public/brewery1.JPG",
+    "../../public/brewery2.JPG",
+    "../../public/brewery4.jpg",
+
+
+
+]
 const BGH = [
     { src: "../../public/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
     { src: "../../public/mgbHome2.jpg", caption: "Logged-in users can view notifications, service requests, and the request database." },
@@ -95,7 +103,7 @@ const items = [
         </div>
 
         ) },
-    { id: 1, title: "Brewery Water Stewardship in Albania | August 2024 - December 2024", details: (
+    { id: 1, title: "Brewery Water Stewardship in Albania | August - December 2024", details: (
             <div>
                 <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
@@ -109,25 +117,48 @@ const items = [
                     </Badge>
 
                 </div>
-                <div className="flex flex-row justify-end">
+                <div className="grid grid-cols-[7fr_3fr] justify-end">
+
+                    <div className="text-left ">
+                        In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
+                        weeks to develop a pilot water stewardship certificate program tailored to Albanian
+                        craft brewers. My team worked with the Water Supply and Sewer Association of Albania (SHUKALB), a non-profit water management
+                        organization in Albania, to encourage water conscious practices among brewers in hope of reducing the harmful effects
+                        of brewery wastewater.
+                    </div>
                     <img
                         src="../../public/Recognition%20logo%20(1).png"
                         alt='shukalb logo'
                         className="object-cover rounded-xl -mt-24"
                     />
                 </div>
-
                 <div>
-                    <div className="flex flex-row gap-6 -mt-5">
+                    <div className=" grid grid-cols-[5fr_5fr] justify-center">
+                        <div className="flex justify-center h-full">
+                            <Carousel opts={{ loop: true }} className="w-full mt-5">
+                                <CarouselContent>
+                                    {albania.map((src, index) => (
+                                        <CarouselItem key={index} className="flex justify-center ">
+                                            <div className=" w-full justify-center">
+                                                <img
+                                                    src={src}
+                                                    alt={`Slide ${index + 1}`}
+
+                                                    // className="object-cover rounded-xl h-[75%] justify-center mx-auto"
+                                                    className="object-cover object-center h-[75%] rounded-xl aspect-[16/9] mx-auto"
+                                                />
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                {/*fix*/}
+                                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 " />
+                                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+
+                            </Carousel>
+                        </div>
 
                         <div className="text-left mt-5">
-                            In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
-                            weeks to complete a social science project. My team worked with SHUKALB, a non-profit water management and
-                            sewage organization in Albania, to develop a pilot water stewardship certificate program tailored to Albanian
-                            craft brewers. This process included an intital 7 week research period before getting to Tirana, where the team
-                            interviewed local brewers and wastewater professionals to get an understanding of the industry, as well as the problem.
-                        </div>
-                        <div className="text-left -mt-5">
                             In Albania we had the privilege to speak to all seven craft brewers in the country, understanding their needs and
                             learning the best ways to support them in wastewater management. From these interviews we developed a 'self-assessment
                             score card' for brewers to asses there wastewater practices at any time. This card, powered by KoboToolbox, highlighted
@@ -197,7 +228,7 @@ const items = [
                 </div>
                 <div className="grid grid-cols-[7fr_3fr] gap-6 -mt-5">
                     <div className="mt-5 justify-center items-center h-full">
-                        <Carousel className="w-full ">
+                        <Carousel opts={{ loop: true }} className="w-full ">
                             <CarouselContent>
                                 {softEngImages.map((src, index) => (
                                     <CarouselItem key={index} className=" justify-center">
@@ -334,7 +365,7 @@ const items = [
 
             <div className="grid grid-cols-[5fr_5fr] gap-6">
                 <div className="mt-5 justify-center items-center h-full">
-                    <Carousel className="w-full ">
+                    <Carousel opts={{ loop: true }} className="w-full ">
                         <CarouselContent>
                             {LookWalkImages.map((src, index) => (
                                 <CarouselItem key={index} className="flex justify-center">
@@ -470,7 +501,7 @@ export default function Home() {
                                 <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div className="flex flex-col xl:flex-row gap-8">
+                                <div className="flex flex-col xl:flex-row gap-6">
                                     <img
                                         src={profilePic}
                                         alt="My Item"
