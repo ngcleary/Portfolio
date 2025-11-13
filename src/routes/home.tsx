@@ -125,7 +125,8 @@ const items = [
                         weeks to develop a pilot water stewardship certificate program tailored to Albanian
                         craft brewers. My team worked with the Water Supply and Sewer Association of Albania (SHUKALB), a non-profit water management
                         organization in Albania, to encourage water conscious practices among brewers in hope of reducing the harmful effects
-                        of brewery wastewater.
+                        of brewery wastewater. In Albania we had the privilege to speak to all seven craft brewers in the country, understanding their needs and
+                        learning the best ways to support them in wastewater management.
                     </div>
                     <img
                         src="../../public/Recognition%20logo%20(1).png"
@@ -160,9 +161,10 @@ const items = [
                         </div>
 
                         <div className="text-left mt-5">
-                            In Albania we had the privilege to speak to all seven craft brewers in the country, understanding their needs and
-                            learning the best ways to support them in wastewater management.<br/><br/>
-                            We connected these brewers with SHUKALB, creating a network of support...kdfkojpdfjpo
+                            Our conversations allowed us to connect each brewer with SHUKALB, encouraging an open dialogue about realistic actions brewers
+                            could take to improve their environmental impact. We also connected SHUKALB with brewery wastewater specialists we met
+                            in America before arriving in Albania. The experts at BetterBev, a New England based sustainability recognition program for brewers,
+                            advised us throughout the development of our program, as they host a similar service in the US.
                         </div>
 
                     </div>
