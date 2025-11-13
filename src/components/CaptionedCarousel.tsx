@@ -56,8 +56,8 @@ export default function CaptionedCarousel({ slides }: { slides: Slide[] }) {
                     ))}
                 </CarouselContent>
 
-                <CarouselPrevious className="left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 rounded-full" />
-                <CarouselNext className="right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white hover:bg-black/60 rounded-full" />
+                <CarouselPrevious className="left top-1/2 -translate-y-1/2" />
+                <CarouselNext className="right top-1/2 -translate-y-1/2 " />
             </Carousel>
 
             {/* Caption snug below the image */}

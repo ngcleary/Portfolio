@@ -466,9 +466,6 @@ const items = [
                     </div>
                 </div>
             </div>
-                <div className="text-left mt-5">
-                    Learn more about the Look. Foundation
-                </div>
         </div> },
     { id: 8, title: "Cohasset Triathlon", details:
     <div>
@@ -617,7 +614,23 @@ export default function Home() {
                                 </div>
                             </CardFooter>
                         </Card>
+                        <div className="flex flex-row gap-2 flex-wrap max-w-full mt-8">
+                        {categories.map((cat) => (
+                            <Card
+                                key={cat.name}
+                                className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
+                                    activeCategory?.name === cat.name
+                                        ? "bg-amber-600"
+                                        : "bg-white/90"
+                                }`}
+                                onClick={() => handleCategoryClick(cat)}
+                            >
+                                {cat.name}
+                            </Card>
+                        ))}
+                        </div>
                     </div>
+
 
                     {/* Right column */}
                     {/*<div className="flex flex-col gap-6 w-[100%]">*/}
@@ -627,19 +640,19 @@ export default function Home() {
                         {/* Bottom row of smaller cards */}
                         {/*<div className="flex gap-8 flex-wrap">*/}
                         <div className="flex flex-row gap-8 flex-wrap max-w-full">
-                            {categories.map((cat) => (
-                                <Card
-                                    key={cat.name}
-                                    className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
-                                        activeCategory?.name === cat.name
-                                            ? "bg-amber-600"
-                                            : "bg-white/90"
-                                    }`}
-                                    onClick={() => handleCategoryClick(cat)}
-                                >
-                                    {cat.name}
-                                </Card>
-                            ))}
+                            {/*{categories.map((cat) => (*/}
+                            {/*    <Card*/}
+                            {/*        key={cat.name}*/}
+                            {/*        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${*/}
+                            {/*            activeCategory?.name === cat.name*/}
+                            {/*                ? "bg-amber-600"*/}
+                            {/*                : "bg-white/90"*/}
+                            {/*        }`}*/}
+                            {/*        onClick={() => handleCategoryClick(cat)}*/}
+                            {/*    >*/}
+                            {/*        {cat.name}*/}
+                            {/*    </Card>*/}
+                            {/*))}*/}
 
                             {/* Top large project detail card */}
                                 <Card className="flex flex-col justify-between w-[100%] bg-white/90 backdrop-blur-sm shadow-xl mb-6 overflow-hidden">
