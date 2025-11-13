@@ -145,7 +145,7 @@ const items = [
                                                     alt={`Slide ${index + 1}`}
 
                                                     // className="object-cover rounded-xl h-[75%] justify-center mx-auto"
-                                                    className="object-cover object-center h-[75%] rounded-xl aspect-[16/9] mx-auto"
+                                                    className="object-cover object-center h-[90%] rounded-xl aspect-[16/9] mx-auto"
                                                 />
                                             </div>
                                         </CarouselItem>
@@ -160,18 +160,58 @@ const items = [
 
                         <div className="text-left mt-5">
                             In Albania we had the privilege to speak to all seven craft brewers in the country, understanding their needs and
-                            learning the best ways to support them in wastewater management. From these interviews we developed a 'self-assessment
-                            score card' for brewers to asses there wastewater practices at any time. This card, powered by KoboToolbox, highlighted
-                            the exact areas where brewers could improve, leading them directly to the appropriate section of our 'suggested practices'
-                            website, where we outline detailed practices for brewers to improve certain areas of their wastewater process.
+                            learning the best ways to support them in wastewater management.<br/><br/>
+                            We connected these brewers with SHUKALB, creating a network of support...kdfkojpdfjpo
                         </div>
 
                     </div>
-
-
-                    <div className="text-left mt-5">
-                        read more and such
+                    <div>
+                        From these interviews we developed a 'self-assessment
+                        score card' for brewers to asses there wastewater practices at any time. This card, powered by KoboToolbox, highlighted
+                        the exact areas where brewers could improve, leading them directly to the appropriate section of our 'suggested practices'
+                        website, where we outline detailed practices for brewers to improve certain areas of their wastewater process.
                     </div>
+
+
+                    <div className="grid grid-cols-2 gap-6 mt-5">
+                        <div className="relative inline-block group">
+                            <img
+                                src="/mgbExternal.jpg"
+                                alt="WhatToBring preview"
+                                className="rounded-xl shadow-md"
+                            />
+                            <a
+                                href="https://example.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
+                            >
+                            <span className="px-4 py-2 bg-white text-black rounded-md font-medium">
+                                Visit Site
+                            </span>
+                            </a>
+                        </div>
+
+                        <div className="relative inline-block group">
+                            <img
+                                src="/mgbExternal.jpg"
+                                alt="WhatToBring preview"
+                                className="rounded-xl shadow-md"
+                            />
+                            <a
+                                href="https://example.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
+                            >
+                            <span className="px-4 py-2 bg-white text-black rounded-md font-medium">
+                                Visit Site
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>)
