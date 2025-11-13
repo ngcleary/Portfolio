@@ -26,22 +26,20 @@ const categories = [
 
 //images
 const BGH = [
-    { src: "../../public/MGBHome.png", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
-    { src: "../../public/MGBHone2.png", caption: "Logged-in users can view notifications, service requests, and the request database." },
-    { src: "../../public/MGBExternal.png", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
-    { src: "../../public/MGBExternal2.png", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
-    { src: "../../public/MGBInternal.png", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
-    { src: "../../public/MGBInternal2.png", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
-    { src: "../../public/MGBMapEdit.png", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
-    { src: "../../public/MGBMapEditNodeInfo.png", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
-    { src: "../../public/MGBNodePlace.png", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
+    { src: "../../public/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
+    { src: "../../public/mgbHome2.jpg", caption: "Logged-in users can view notifications, service requests, and the request database." },
+    { src: "../../public/mgbExternal.jpg", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
+    { src: "../../public/mgbExternal2.jpg", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
+    { src: "../../public/mgbInternal.jpg", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
+    { src: "../../public/mgbInternal2.jpg", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
+    { src: "../../public/mgbMapEdit.jpg", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
+    { src: "../../public/mgbNodeInfo.jpg", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
+    { src: "../../public/mgbNodePlace.jpg", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
 
-    { src: "../../public/MGBNodeEdge.png", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
-    { src: "../../public/MGBEditNode.png", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
-    { src: "../../public/MGBNodeAlgo.png", caption: "Admins can change the internal pathfinding algorithm or reset the map to its default state." },
-    { src: "../../public/MGBServiceReq.png", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
-    { src: "../../public/MGBFile.png", caption: "Users can filter requests with dropdown menus and apply multiple filters. Columns are sortable by clicking their headers." },
-    { src: "../../public/MGBRequests.png", caption: "Each request includes fields like assigned employee, location, and priority, with text boxes for comments and dropdown selections." },
+    { src: "../../public/mgbNodeEdge.jpg", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
+    { src: "../../public/mgbEditNode.jpg", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
+    { src: "../../public/mgbServiceReq.jpg", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
+    { src: "../../public/mgbAnounce.jpg", caption: "Clicking the bell icon opens a notification panel showing active announcements for employees and admins. Clicking a notification marks it as read and removes the highlight. The bell icon badge displays the count of unread notifications." },
 
 
 ];
@@ -172,13 +170,9 @@ const items = [
             <div className="">
                 In collaboration with Brigham and Women's Hospital, I lead a team of 9 other software developers through 7
                 one-week sprints to design a professional, branded website for employees and patients of the Brigham and Women's hospitals.
+                <CaptionedCarousel slides={BGH} />
+                <div className="text-left mt-4"></div>
             </div>
-                <div className="mt-5">
-                    <CaptionedCarousel slides={BGH} />
-                    <div className="text-left mt-4">...</div>
-                </div>
-
-
                 <div className="">
                     As Lead Software Engineer, I guided my team through the full Agile development process, facilitating sprint-planning meetings
                     where we created user stories, designed storyboards, and assigned story points using planning poker before organizing our tasks in Jira.
@@ -187,15 +181,6 @@ const items = [
                     GitHub workflows, and provided hands-on support where needed — implementing frontend, backend, and algorithmic components.
                     We concluded each cycle with sprint reflections to evaluate progress and continuously improve our process.
                 </div>
-                <div className="">
-                    Main features
-                    - Auth0
-                    - request pages
-                    - external map
-                    - voice commans
-                    - internal map - map editor
-                </div>
-
             </div>
 
         ) },
