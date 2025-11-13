@@ -29,9 +29,10 @@ const albania = [
     "../../public/brewery1.JPG",
     "../../public/brewery2.JPG",
     "../../public/brewery4.jpg",
-
-
-
+]
+const scorecard = [
+    "../../public/scoreQuestion.jpg",
+    "../../public/scoreResult.jpg"
 ]
 const BGH = [
     { src: "../../public/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
@@ -175,31 +176,51 @@ const items = [
 
                     <div className="grid grid-cols-2 gap-6 mt-5">
                         <div className="relative inline-block group">
-                            <img
-                                src="/mgbExternal.jpg"
-                                alt="WhatToBring preview"
-                                className="rounded-xl shadow-md"
-                            />
-                            <a
-                                href="https://example.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
-                            >
-                            <span className="px-4 py-2 bg-white text-black rounded-md font-medium">
-                                Visit Site
-                            </span>
-                            </a>
+                            <Carousel opts={{ loop: true }} className="w-full mx-auto">
+                                <CarouselContent>
+                                    {scorecard.map((src, index) => (
+                                        <CarouselItem key={index} className="flex justify-center">
+                                            <div className="relative w-full group">
+                                                {/* Image */}
+                                                <img
+                                                    src={src}
+                                                    alt={"Slide ${index + 1}"}
+                                                    className="rounded-xl shadow-md"
+                                                />
+
+                                                {/* Overlay that appears on hover */}
+                                                <a
+                                                    href='https://ee.kobotoolbox.org/x/9NNF0cGl'
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="absolute inset-0 flex items-center justify-center
+                       bg-black/40 text-white opacity-0
+                       group-hover:opacity-100 transition-opacity rounded-xl"
+                                                >
+            <span className="px-4 py-2 bg-white text-black rounded-md font-medium">
+              Visit Site
+            </span>
+                                                </a>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+
+                                {/* Carousel controls */}
+                                <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2" />
+                                <CarouselNext className="right-2 top-1/2 -translate-y-1/2" />
+                            </Carousel>
+
                         </div>
 
                         <div className="relative inline-block group">
                             <img
-                                src="/mgbExternal.jpg"
-                                alt="WhatToBring preview"
+                                src="../../public/brewSite.jpg"
+                                alt="Wbrew site"
                                 className="rounded-xl shadow-md"
                             />
                             <a
-                                href="https://example.com"
+                                href="https://sites.google.com/view/brewing-a-better-future/home"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
