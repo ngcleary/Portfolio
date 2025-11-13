@@ -41,7 +41,7 @@ export default function CaptionedCarousel({ slides }: { slides: Slide[] }) {
 
     return (
         <div className="w-full mx-auto flex flex-col items-center">
-            <Carousel setApi={setApi} className="w-full">
+            <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
                 <CarouselContent>
                     {slides.map((slide, index) => (
                         <CarouselItem key={index} className="flex justify-center">

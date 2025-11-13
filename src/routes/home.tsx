@@ -26,28 +26,24 @@ const categories = [
 
 //images
 const BGH = [
-    { src: "../../public/MGBHome.png", caption: "Our sites Home page. The Navigation, Directory, and About features are" +
-            "accessible without a login. To use all features, users must login." },
-    { src: "../../public/MGBHone2.png", caption: "The home page of a logged in user allows access to all features. Employees can" +
-            "view their notifications, service requests, or the database of requests." },
-    { src: "../../public/MGBExternal.png", caption: "Upon clicking 'Find a Location' users are directed to our external map tool" +
-            "powered with the Google Maps API. Users can select their starting location (either by manually entering the location or using the “Use my location” button). " +
-            "Then the user can select their mode of transportation from the dropdown, and then their desired destination. "},
-    { src: "../../public/MGBExternal2.png", caption: "Once all these entries are filled, a route should appear between the starting and ending location. As well as the route, " +
-        "users can see text directions on the right-hand side, which includes step by step instructions on how to get to the selected " +
-                "location. Clicking on the volume button will read the directions out loud. Audio directions can be muted by clicking the button " +
-            "again. Once the user has arrived at the location, they can click “I’ve Arrived” which will take them to the internal navigation " +
-            "page. " },
-    { src: "../../public/MGBInternal.png", caption: "After clicking “I’ve arrived”, the user will be brought to an internal map for the location they previously seleced. On this page, users can get directions from the selected parking lot to the check-in desk of the appropriate department they wish to travel to. Using the left panel, " +
-            "users can select their parking lot and the department they wish to navigate to using the dropdowns. After clicking on the “Get Directions” button, a route will be displayed between the parking lot and the check-in desk for the department, as shown below."},
-    { src: "../../public/MGBInternal2.png", caption: "Alternatively, users can click on the microphone icon to use voice commands to input the parking lot and department, as long as that option is in the dropdowns. For example, a user looking at the Patriot Place 20 map could say, “Take me from the Patient Parking Lot to the Allergy Department.” When using voice input, users will see their speech as text on the bottom bar. " +
-            "The user can also scroll, pan, and zoom in on the map to view their route and see some of the department locations. "},
-    { src: "../../public/MGBMapEdit.png", caption: "The map editor page allows admins to edit what paths can be displayed when pathfinding. Upon opening, the internal map of 20 Patriot Place is shown. The colored markers on the map are called Nodes, and each represent an important location in pathfinding, such as a reception desk, parking lot, or hallway. Nodes are color coded by type, with a legend displayed on the right side explaining what each marker represents. The blue lines are the connections between the Nodes called Edges" },
-    { src: "../../public/MGBMapEditNodeInfo.png", caption: "To view more information about a Node, the user can double click on a Node, which will highlight it with a blue circle and display a pop up with its name, coordinates, and other information." },
-    { src: "../../public/MGBNodePlace.png", caption: "If the user wants to place a Node, they can click on the map to select the Node’s location. A red circle will appear in that area, and the coordinates, building and floor will be shown on the left panel. The user can then select a Node type on the dropdown, optionally inputting a name. Once they hit “Save Node,” the Node appears in that area." },
+    { src: "../../public/MGBHome.png", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
+    { src: "../../public/MGBHone2.png", caption: "Logged-in users can view notifications, service requests, and the request database." },
+    { src: "../../public/MGBExternal.png", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
+    { src: "../../public/MGBExternal2.png", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
+    { src: "../../public/MGBInternal.png", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
+    { src: "../../public/MGBInternal2.png", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
+    { src: "../../public/MGBMapEdit.png", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
+    { src: "../../public/MGBMapEditNodeInfo.png", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
+    { src: "../../public/MGBNodePlace.png", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
 
-    { src: "../../public/MGBNodeEdge.png", caption: "To create an Edge between two nodes, a user can first click on the two nodes they wish to connect. These Nodes will be highlighted by a blue circle, and their ID’s will be displayed on the left. Once the user hits “Save Edge,” a line will appear between the two Nodes." },
-    { src: "../../public/MGBEditNode.png", caption: "If the user wants to edit a Node, they must first switch to the Edit Node tab by clicking Edit Node. After selecting a node to edit, which will display its ID on the left text area, the user can optionally select the name, node type and associated departments of the Node through the textboxes and dropdowns. Coordinates of a node can be edited in three different ways: manually inputting X and Y coordinates with the textboxes, clicking a new location on the map (which will display a red circle like when placing a node), or dragging the Node across the map (this automatically selects the Node and switches to the Edit Node tab if the Place Node tab was open). After the user hits “Save Changes,” the Node will officially be edited to its moved location and will visibly update its connected Edges." },
+    { src: "../../public/MGBNodeEdge.png", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
+    { src: "../../public/MGBEditNode.png", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
+    { src: "../../public/MGBNodeAlgo.png", caption: "Admins can change the internal pathfinding algorithm or reset the map to its default state." },
+    { src: "../../public/MGBServiceReq.png", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
+    { src: "../../public/MGBFile.png", caption: "Users can filter requests with dropdown menus and apply multiple filters. Columns are sortable by clicking their headers." },
+    { src: "../../public/MGBRequests.png", caption: "Each request includes fields like assigned employee, location, and priority, with text boxes for comments and dropdown selections." },
+
+
 ];
 const softEngImages = [
     "../../public/resizeWTBOld.png",
