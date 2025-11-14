@@ -136,7 +136,6 @@ const items = [
 
                 <div className="text-left ">
                     I am currently collaborating with a project manager at Microsoft on an applied research project focused on advanced Natural Language Processing and Generative AI. Along with a team of three, I am designing and developing an agentic Retrieval-Augmented Generation (RAG) system where retrieval quality, traceability, and reasoning accuracy are the top priorities.
-                    <br/><br/>
                 </div>
                 <img
                     src="/microsoft.png"
@@ -253,13 +252,9 @@ const items = [
                                                     href='https://ee.kobotoolbox.org/x/9NNF0cGl'
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="absolute inset-0 flex items-center justify-center
-                       bg-black/40 text-white opacity-0
-                       group-hover:opacity-100 transition-opacity rounded-xl"
+                                                    className="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
                                                 >
-            <span className="px-4 py-2 bg-white text-black rounded-md font-medium">
-              Visit Site
-            </span>
+                                                    <span className="px-4 py-2 bg-white text-black rounded-md font-medium">Visit Site</span>
                                                 </a>
                                             </div>
                                         </CarouselItem>
@@ -682,42 +677,7 @@ export default function Home() {
                 {/* Left large card with pagination */}
 
                     <div className='animate-fade-in h-[100%] w-[100%]'>
-                        <div className="flex flex-row gap-2 flex-wrap max-w-full mb-6">
-                            {categories.map((cat) => (
-                                <Card
-                                    key={cat.name}
-                                    className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
-                                        activeCategory?.name === cat.name
-                                            ? "bg-amber-600"
-                                            : "bg-white/90"
-                                    }`}
-                                    onClick={() => handleCategoryClick(cat)}
-                                >
-                                    {cat.name}
-                                </Card>
-                            ))}
-                            <div className="ml-8 flex justify-between items-center gap-2">
-                                <Button className="bg-white/90 text-black font-bold hover:bg-white" onClick={handlePrev}>
-                                    <ArrowLeft size={28} />
-                                </Button>
-                                {/* Pagination dots */}
-                                <div className="flex items-center gap-2">
-                                    {categories
-                                        .find((cat) => cat.indices.includes(currentIndex))
-                                        ?.indices.map((i) => (
-                                            <div
-                                                key={i}
-                                                className={`w-3 h-3 rounded-full ${
-                                                    i === currentIndex ? "bg-amber-600" : "bg-gray-400"
-                                                } transition-all duration-300`}
-                                            />
-                                        ))}
-                                </div>
-                                <Button className="bg-white/90 text-black font-bold hover:bg-white" onClick={handleNext}>
-                                    <ArrowRight size={28} />
-                                </Button>
-                            </div>
-                        </div>
+
                         <Card className="bg-white/90">
                             <CardHeader>
                                 <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
@@ -774,12 +734,71 @@ export default function Home() {
 
 
                     {/* Right column */}
-                    {/*<div className="flex flex-col gap-6 w-[100%]">*/}
-                    <div className="flex flex-col gap-6 w-full max-w-full h-full">
+                    <div className="flex flex-col gap-6 w-full max-w-full h-full relative">
+                        <div className="flex items-center justify-start relative h-12 w-full">
 
+                            <div className="flex flex-row gap-2 flex-wrap max-w-full">
+                                {categories.map((cat) => (
+                                    <Card
+                                        key={cat.name}
+                                        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
+                                            activeCategory?.name === cat.name
+                                                ? "bg-amber-600"
+                                                : "bg-white/90"
+                                        }`}
+                                        onClick={() => handleCategoryClick(cat)}
+                                    >
+                                        {cat.name}
+                                    </Card>
+                                ))}
+                            </div>
+                            <div className="flex flex-row gap-8 justify-start items-center max-w-full mx-auto">
+                                <Button
+                                    onClick={handlePrev}
+                                    className=" left-0 top-0 bg-white/90 p-3 text-black rounded-lg shadow"
+                                >
+                                    <ArrowLeft size={20} />
+                                </Button>
+                                {/* Pagination dots */}
+                                <div className="flex items-center gap-2">
+                                    {categories
+                                        .find((cat) => cat.indices.includes(currentIndex))
+                                        ?.indices.map((i) => (
+                                            <div
+                                                key={i}
+                                                className={`w-3 h-3 rounded-full ${
+                                                    i === currentIndex ? "bg-amber-600" : "bg-gray-400"
+                                                } transition-all duration-300`}
+                                            />
+                                        ))}
+                                </div>
+
+                                <Button
+                                    onClick={handleNext}
+                                    className=" right-0 top-0 bg-white/90 text-black p-3 rounded-lg shadow"
+                                >
+                                    <ArrowRight size={20} />
+                                </Button>
+                            </div>
+
+
+                        </div>
+
+                        {/*<button*/}
+                        {/*    onClick={handlePrev}*/}
+                        {/*    className="absolute left-0 -translate-x-1/2 bg-white/90 p-3 rounded-full shadow z-50">*/}
+                        {/*    <ArrowLeft size={28} />*/}
+                        {/*</button>*/}
+
+                        {/*/!* FIXED RIGHT ARROW *!/*/}
+                        {/*<button*/}
+                        {/*    onClick={handleNext}*/}
+                        {/*    className="absolute right-0 translate-x-1/2 bg-white/90 p-3 rounded-full shadow z-50"*/}
+                        {/*>*/}
+                        {/*    <ArrowRight size={28} />*/}
+                        {/*</button>*/}
 
                         {/* Bottom row of smaller cards */}
-                        {/*<div className="flex gap-8 flex-wrap">*/}
                         <div className="flex flex-row gap-8 flex-wrap max-w-full">
                             {/*{categories.map((cat) => (*/}
                             {/*    <Card*/}
@@ -796,15 +815,9 @@ export default function Home() {
                             {/*))}*/}
 
                             {/* Top large project detail card */}
-                                <Card className="flex flex-col justify-between w-[100%] bg-white/90 backdrop-blur-sm shadow-xl mb-6 overflow-hidden">
+
+                                <Card className="flex flex-col justify-between w-[100%] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
                                     <AnimatePresence mode="wait">
-                                        {/*<motion.div*/}
-                                        {/*    key={items[currentIndex].id}*/}
-                                        {/*    initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}*/}
-                                        {/*    animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}*/}
-                                        {/*    exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}*/}
-                                        {/*    transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}*/}
-                                        {/*>*/}
                                         <motion.div
                                             key={items[currentIndex].id}
                                             initial={
@@ -862,7 +875,6 @@ export default function Home() {
                             </Card>
 
                         </div>
-
                     </div>
                 </div>
                 {showParticles && (
