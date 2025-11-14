@@ -1,7 +1,7 @@
 import profilePic from "../../public/profilepic.png";
 import {useEffect, useRef, useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import {Linkedin, Github} from "lucide-react";
+import {Linkedin, Github, ArrowRight, ArrowLeft} from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
@@ -132,17 +132,32 @@ const items = [
                 </Badge>
 
             </div>
-            <div className="text-left ">
-                I currently have the opportunity to work closely with a project manager from Microsoft to investigate
-                advanced Natural Language Processing (NLP) and GenAI techniques. Myself and a team of three others are
-                designing and developing an agentic RAG system with retrieval quality as the top priority. We are designing and testing
-                various frameworks to improve decision making and context optimization, while ensuring the system can be easily learned
-                by users and further adapted for future improvements.
+            <div className="grid grid-cols-[8fr_2fr] gap-3 justify-end">
+
+                <div className="text-left ">
+                    I am currently collaborating with a project manager at Microsoft on an applied research project focused on advanced Natural Language Processing and Generative AI. Along with a team of three, I am designing and developing an agentic Retrieval-Augmented Generation (RAG) system where retrieval quality, traceability, and reasoning accuracy are the top priorities.
+                    <br/><br/>
+                </div>
+                <img
+                    src="/microsoft.png"
+                    alt='shukalb logo'
+                    className="object-cover rounded-xl -mt-14 w-[80%]"
+                />
             </div>
-            <ul>
-                <li>Azure AI Foundry</li>
-                <li>LangChain</li>
-                <li>Ragas</li>
+            Our work involves exploring and evaluating different RAG frameworks to improve decision-making, reduce hallucinations, and optimize context selection. I’m building ReAct-style agents using LangChain and Azure AI Foundry, with an emphasis on creating a system that is both powerful and easy for future teams to adapt. This project has allowed me to work hands-on with cutting-edge GenAI tooling while contributing to research on more reliable and interpretable AI systems.
+
+            <div className="text-left ">
+
+            </div>
+            <div className="text-left font-bold  mt-5">
+                Key Focus Areas:
+            </div>
+            <ul className="list-[square] text-left pl-8">
+                <li>Designing and evaluating high-quality RAG pipelines to improve retrieval accuracy and reasoning</li>
+                <li>Developing prescriptive, traceable solutions for natural-language queries using Python, LangChain, and Azure AI Foundry</li>
+                <li>Building agentic workflows (ReAct agents) powered by OpenAI models</li>
+                <li>Testing different decision-making strategies and context-optimization methods</li>
+                <li>Ensuring the system remains modular, learnable, and adaptable for future improvements</li>
             </ul>
         </div>
 
@@ -322,6 +337,33 @@ const items = [
             </div>
 
         ) },
+    { id: 3, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
+            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    JavaScript
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Project Management
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Advocacy
+                </Badge>
+                <div className="text-left ">
+                    I am currently working with the Look. Foundation, a nonprofit dedicated to supporting families affected by PANS/PANDAS,
+                    where I lead the design and development of new digital resources for teachers, school nurses, and counselors.
+                    This role combines project management, technical development, and close collaboration with experts in both medicine
+                    and education. <br/><br/>
+                    Throughout this project, I’ve been responsible for identifying gaps in existing school resources, interviewing
+                    medical professionals and active educators, and translating their insights into clear, accessible tools.
+                    I’m designing and building interactive materials—using custom HTML, CSS, and JavaScript within Squarespace—that help school
+                    professionals recognize symptoms, track student needs, and communicate more effectively with families and healthcare providers.
+                </div>
+                <CaptionedCarousel slides={Look} />
+
+            </div>
+
+
+        </div>},
     { id: 4, title: "WhatToBring | Present", details:
             <div>
                 <div className="flex flex-wrap gap-2 -mt-4 mb-3">
@@ -382,33 +424,6 @@ const items = [
                 </div>
             </div>
     },
-    { id: 3, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
-            <div className="flex flex-wrap gap-2 -mt-4 mb-3">
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    JavaScript
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Project Management
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Advocacy
-                </Badge>
-                <div className="text-left ">
-                    I am currently working with the Look. Foundation, a nonprofit dedicated to supporting families affected by PANS/PANDAS,
-                    where I lead the design and development of new digital resources for teachers, school nurses, and counselors.
-                    This role combines project management, technical development, and close collaboration with experts in both medicine
-                    and education. <br/><br/>
-                    Throughout this project, I’ve been responsible for identifying gaps in existing school resources, interviewing
-                    medical professionals and active educators, and translating their insights into clear, accessible tools.
-                    I’m designing and building interactive materials—using custom HTML, CSS, and JavaScript within Squarespace—that help school
-                    professionals recognize symptoms, track student needs, and communicate more effectively with families and healthcare providers.
-                </div>
-                <CaptionedCarousel slides={Look} />
-
-            </div>
-
-
-        </div>},
     { id: 5, title: "Lasker Morris AI | February 2025", details:
     <div>
         <div className="flex flex-wrap gap-2 -mt-4 mb-3">
@@ -665,7 +680,44 @@ export default function Home() {
                 <div className="grid grid-cols-[3fr_7fr] gap-9 p-10 h-full items-stretch">
 
                 {/* Left large card with pagination */}
+
                     <div className='animate-fade-in h-[100%] w-[100%]'>
+                        <div className="flex flex-row gap-2 flex-wrap max-w-full mb-6">
+                            {categories.map((cat) => (
+                                <Card
+                                    key={cat.name}
+                                    className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
+                                        activeCategory?.name === cat.name
+                                            ? "bg-amber-600"
+                                            : "bg-white/90"
+                                    }`}
+                                    onClick={() => handleCategoryClick(cat)}
+                                >
+                                    {cat.name}
+                                </Card>
+                            ))}
+                            <div className="ml-8 flex justify-between items-center gap-2">
+                                <Button className="bg-white/90 text-black font-bold hover:bg-white" onClick={handlePrev}>
+                                    <ArrowLeft size={28} />
+                                </Button>
+                                {/* Pagination dots */}
+                                <div className="flex items-center gap-2">
+                                    {categories
+                                        .find((cat) => cat.indices.includes(currentIndex))
+                                        ?.indices.map((i) => (
+                                            <div
+                                                key={i}
+                                                className={`w-3 h-3 rounded-full ${
+                                                    i === currentIndex ? "bg-amber-600" : "bg-gray-400"
+                                                } transition-all duration-300`}
+                                            />
+                                        ))}
+                                </div>
+                                <Button className="bg-white/90 text-black font-bold hover:bg-white" onClick={handleNext}>
+                                    <ArrowRight size={28} />
+                                </Button>
+                            </div>
+                        </div>
                         <Card className="bg-white/90">
                             <CardHeader>
                                 <CardTitle className="text-left text-2xl">Welcome to my website!</CardTitle>
@@ -678,27 +730,21 @@ export default function Home() {
                                         className="object-cover rounded-md w-full xl:w-[50%] h-full max-w-full border-black border-2"/>
                                     <div>
                                         <div className="text-xl mb-1 -mt-2 ">About me!</div>
-
                                         <div className='mb-1'>
                                             My name is Nora Cleary, I currently study at Worcester Polytechnic Institute
                                             working towards a Bachelor's Degree in Computer Science.
                                         </div>
 
-                                        <div className='mb-1'>
-
-                                        </div>
                                     </div>
-
                                 </div>
                             </CardContent>
-                            <CardFooter className="flex flex-col items-center gap-2">
+                            <CardFooter className="flex flex-col items-center">
                                 <ul className="list-[square] text-left pl-8 mb-3">
-                                    <li>Java, Typescript, Javascript, Python, SQL, C</li>
-                                    <li>
-                                        Related courses: Software Engineering, Artificial Intelligence,
-                                        Machine Learning, Database Systems
-                                    </li>
-                                    <li>Azure AI Foundry</li>
+
+                                    <li><b>Languages:</b> Java, Python, C/C++, SQL, JavaScript, TypeScript, HTML/CSS</li>
+                                    <li><b>Frameworks:</b> React, Node.js, Express, Scikit-Learn, LangChain, FastAPI</li>
+                                    <li><b>Developer Tools:</b> Azure DevOPs, Git, Docker</li>
+                                    <li><b>Related courses:</b> Software Engineering, Artificial Intelligence, Machine Learning, Database Systems</li>
                                 </ul>
 
                                 <div className="flex flex-col sm:flex-row gap-3 pl-8 justify-center items-center">
@@ -724,21 +770,6 @@ export default function Home() {
                                 </div>
                             </CardFooter>
                         </Card>
-                        <div className="flex flex-row gap-2 flex-wrap max-w-full mt-8">
-                        {categories.map((cat) => (
-                            <Card
-                                key={cat.name}
-                                className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
-                                    activeCategory?.name === cat.name
-                                        ? "bg-amber-600"
-                                        : "bg-white/90"
-                                }`}
-                                onClick={() => handleCategoryClick(cat)}
-                            >
-                                {cat.name}
-                            </Card>
-                        ))}
-                        </div>
                     </div>
 
 
@@ -809,23 +840,23 @@ export default function Home() {
                                 {/*</Card>*/}
 
                                 <div className="flex flex-col">
-                                    <CardFooter className=" flex justify-between items-center mt-4">
-                                        <Button onClick={handlePrev}>←</Button>
-                                        {/* Pagination dots */}
-                                        <div className="flex items-center gap-2">
-                                            {categories
-                                                .find((cat) => cat.indices.includes(currentIndex))
-                                                ?.indices.map((i) => (
-                                                    <div
-                                                        key={i}
-                                                        className={`w-3 h-3 rounded-full ${
-                                                            i === currentIndex ? "bg-amber-800" : "bg-gray-400"
-                                                        } transition-all duration-300`}
-                                                    />
-                                                ))}
-                                        </div>
-                                        <Button onClick={handleNext}>→</Button>
-                                    </CardFooter>
+                                    {/*<CardFooter className=" flex justify-between items-center mt-4">*/}
+                                    {/*    <Button onClick={handlePrev}>←</Button>*/}
+                                    {/*    /!* Pagination dots *!/*/}
+                                    {/*    <div className="flex items-center gap-2">*/}
+                                    {/*        {categories*/}
+                                    {/*            .find((cat) => cat.indices.includes(currentIndex))*/}
+                                    {/*            ?.indices.map((i) => (*/}
+                                    {/*                <div*/}
+                                    {/*                    key={i}*/}
+                                    {/*                    className={`w-3 h-3 rounded-full ${*/}
+                                    {/*                        i === currentIndex ? "bg-amber-800" : "bg-gray-400"*/}
+                                    {/*                    } transition-all duration-300`}*/}
+                                    {/*                />*/}
+                                    {/*            ))}*/}
+                                    {/*    </div>*/}
+                                    {/*    <Button onClick={handleNext}>→</Button>*/}
+                                    {/*</CardFooter>*/}
                                 </div>
 
                             </Card>
