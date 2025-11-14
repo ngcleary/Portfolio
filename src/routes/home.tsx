@@ -25,88 +25,91 @@ const categories = [
 ];
 
 //images
+const base = import.meta.env.BASE_URL;
+
 const albania = [
-    "/brewery1.JPG",
-    "/brewery2.JPG",
-    "/brewery4.jpg",
-]
-const scorecard = [
-    "/scoreQuestion.jpg",
-    "/scoreResult.jpg"
-]
-const BGH = [
-    { src: "/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
-    { src: "/mgbHome2.jpg", caption: "Logged-in users can view notifications, service requests, and the request database." },
-    { src: "/mgbExternal.jpg", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
-    { src: "/mgbExternal2.jpg", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
-    { src: "/mgbInternal.jpg", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
-    { src: "/mgbInternal2.jpg", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
-    { src: "/mgbMapEdit.jpg", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
-    { src: "/mgbNodeInfo.jpg", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
-    { src: "/mgbNodePlace.jpg", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
-
-    { src: "/mgbNodeEdge.jpg", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
-    { src: "/mgbEditNode.jpg", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
-    { src: "/mgbServiceReq.jpg", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
-    { src: "/mgbAnounce.jpg", caption: "Clicking the bell icon opens a notification panel showing active announcements for employees and admins. Clicking a notification marks it as read and removes the highlight. The bell icon badge displays the count of unread notifications." },
-
-
+    `${base}brewery1.JPG`,
+    `${base}brewery2.JPG`,
+    `${base}brewery4.jpg`,
 ];
+
+const scorecard = [
+    `${base}scoreQuestion.jpg`,
+    `${base}scoreResult.jpg`,
+];
+
+const BGH = [
+    { src: `${base}mgbHome.jpg`, caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
+    { src: `${base}mgbHome2.jpg`, caption: "Logged-in users can view notifications, service requests, and the request database." },
+    { src: `${base}mgbExternal.jpg`, caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
+    { src: `${base}mgbExternal2.jpg`, caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
+    { src: `${base}mgbInternal.jpg`, caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
+    { src: `${base}mgbInternal2.jpg`, caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
+    { src: `${base}mgbMapEdit.jpg`, caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
+    { src: `${base}mgbNodeInfo.jpg`, caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
+    { src: `${base}mgbNodePlace.jpg`, caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
+    { src: `${base}mgbNodeEdge.jpg`, caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
+    { src: `${base}mgbEditNode.jpg`, caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
+    { src: `${base}mgbServiceReq.jpg`, caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
+    { src: `${base}mgbAnounce.jpg`, caption: "Clicking the bell icon opens a notification panel showing active announcements for employees and admins. Clicking a notification marks it as read and removes the highlight. The bell icon badge displays the count of unread notifications." },
+];
+
 const softEngImages = [
-    "/resizeWTBOld.png",
-    "/WTBLogin.jpg",
-    "/WTBSignup.jpg",
-    "/WTBHome.jpg",
-]
-const Look =
-    [
-        {
-            src: "/lookCards.jpg",
-            caption:
-                "Symptom Cards — On every home page (nurse, teacher, counselor), users can flip symptom cards to view an overview of PANS/PANDAS symptoms."
-        },
-        {
-            src: "/counselor1.jpg",
-            caption:
-                "Counselors — Counselors can build exposure ladders by entering steps, rating anxiety and willingness, and saving each run. Steps can be reordered with drag-and-drop and edited at any time."
-        },
-        {
-            src: "/nurse1.jpg",
-            caption:
-                "School Nurse — A quick test breaks down each PANS/PANDAS symptom for easy identification. If the symptoms align with PANDAS, users can generate a provider note with recommended next steps."
-        },
-        {
-            src: "/nurse2.jpg",
-            caption:
-                "School Nurse — Users fill out text boxes to generate a provider note. The symptoms selected above are automatically included."
-        },
-        {
-            src: "/nurse4.jpg",
-            caption:
-                "School Nurse — Users can preview the provider note before downloading a personalized PDF."
-        },
-        {
-            src: "/nurse5.jpg",
-            caption:
-                "School Nurse (Illness Letter) — Users fill in text boxes to generate a customized illness letter for classes, supporting students whose PANDAS symptoms flare when they get sick. The PDF can then be downloaded."
-        },
-        {
-            src: "/teacher1.jpg",
-            caption:
-                "Teachers — Check symptom boxes to generate a tailored list of classroom accommodations based on the symptoms selected."
-        },
-        {
-            src: "/teacher2.jpg",
-            caption:
-                "Teachers — A symptom tracking list allows teachers to record behaviors and communicate patterns to parents."
-        }
-]
+    `${base}resizeWTBOld.png`,
+    `${base}WTBLogin.jpg`,
+    `${base}WTBSignup.jpg`,
+    `${base}WTBHome.jpg`,
+];
+
+const Look = [
+    {
+        src: `${base}lookCards.jpg`,
+        caption:
+            "Symptom Cards — On every home page (nurse, teacher, counselor), users can flip symptom cards to view an overview of PANS/PANDAS symptoms."
+    },
+    {
+        src: `${base}counselor1.jpg`,
+        caption:
+            "Counselors — Counselors can build exposure ladders by entering steps, rating anxiety and willingness, and saving each run. Steps can be reordered with drag-and-drop and edited at any time."
+    },
+    {
+        src: `${base}nurse1.jpg`,
+        caption:
+            "School Nurse — A quick test breaks down each PANS/PANDAS symptom for easy identification. If the symptoms align with PANDAS, users can generate a provider note with recommended next steps."
+    },
+    {
+        src: `${base}nurse2.jpg`,
+        caption:
+            "School Nurse — Users fill out text boxes to generate a provider note. The symptoms selected above are automatically included."
+    },
+    {
+        src: `${base}nurse4.jpg`,
+        caption:
+            "School Nurse — Users can preview the provider note before downloading a personalized PDF."
+    },
+    {
+        src: `${base}nurse5.jpg`,
+        caption:
+            "School Nurse (Illness Letter) — Users fill in text boxes to generate a customized illness letter for classes, supporting students whose PANDAS symptoms flare when they get sick. The PDF can then be downloaded."
+    },
+    {
+        src: `${base}teacher1.jpg`,
+        caption:
+            "Teachers — Check symptom boxes to generate a tailored list of classroom accommodations based on the symptoms selected."
+    },
+    {
+        src: `${base}teacher2.jpg`,
+        caption:
+            "Teachers — A symptom tracking list allows teachers to record behaviors and communicate patterns to parents."
+    }
+];
+
 const LookWalkImages = [
-    "/LookGoat.JPG",
-    "/LookTable.JPG",
-    "/LookWalking.JPG",
-    "/LookTable2.JPG",
-]
+    `${base}LookGoat.JPG`,
+    `${base}LookTable.JPG`,
+    `${base}LookWalking.JPG`,
+    `${base}LookTable2.JPG`,
+];
 
 const items = [
     { id: 0, title: "Microsoft Collaboration | Present", details: (
@@ -138,7 +141,7 @@ const items = [
                     I am currently collaborating with a project manager at Microsoft on an applied research project focused on advanced Natural Language Processing and Generative AI. Along with a team of three, I am designing and developing an agentic Retrieval-Augmented Generation (RAG) system where retrieval quality, traceability, and reasoning accuracy are the top priorities.
                 </div>
                 <img
-                    src="/microsoft.png"
+                    src="/Portfolio/microsoft.png"
                     alt='shukalb logo'
                     className="object-cover rounded-xl -mt-14 w-[80%]"
                 />
@@ -175,9 +178,8 @@ const items = [
                     </Badge>
 
                 </div>
-                <div className="grid grid-cols-[7fr_3fr] justify-end">
-
-                    <div className="text-left ">
+                <div className="grid grid-cols-[7fr_3fr] ">
+                    <div className="text-left">
                         In fulfilment of the WPI Interactive Qualifying Project (IQP), I traveled to Tirana, Albania for 7
                         weeks to develop a pilot water stewardship certificate program tailored to Albanian
                         craft brewers. My team worked with the Water Supply and Sewer Association of Albania (SHUKALB), a non-profit water management
@@ -186,9 +188,9 @@ const items = [
                         learning the best ways to support them in wastewater management.
                     </div>
                     <img
-                        src="../../public/Recognition%20logo%20(1).png"
+                        src="/Portfolio/Recognition%20logo%20(1).png"
                         alt='shukalb logo'
-                        className="object-cover rounded-xl -mt-24"
+                        className="object-cover rounded-xl -mt-20"
                     />
                 </div>
                 <div>
@@ -270,7 +272,7 @@ const items = [
 
                         <div className="relative inline-block group">
                             <img
-                                src="../../public/brewSite.jpg"
+                                src="/Portfolio/brewSite.jpg"
                                 alt="Wbrew site"
                                 className="rounded-xl shadow-md"
                             />
@@ -432,7 +434,7 @@ const items = [
         <div className="grid grid-cols-2 gap-6">
             <div className="grid-row-2">
                 <img
-                    src="../../public/Gabor.png"
+                    src="/Portfolio/Gabor.png"
                     alt='Swim'
                     className="object-cover rounded-xl "
                 />
@@ -500,7 +502,7 @@ const items = [
                 of each word, seeing how words like 'poor' or 'refund' push the prediction down.
             </div>
             <img
-                src="/LIME.png"
+                src="/Portfolio/LIME.png"
                 alt='LIME visualization'
                 className="object-cover mx-auto rounded-xl mt-5 mb-5"
             />
@@ -603,17 +605,17 @@ const items = [
         </div>
         <div className="grid grid-cols-3 gap-6">
             <img
-                src="../../public/TriSwim.JPG"
+                src="/Portfolio/TriSwim.JPG"
                 alt='Swim'
                 className="object-cover rounded-xl "
             />
             <img
-                src="../../public/TriBike.JPG"
+                src="/Portfolio/TriBike.JPG"
                 alt='Bike'
                 className="object-cover rounded-xl "
             />
             <img
-                src="../../public/TriRun.JPG"
+                src="/Portfolio/TriRun.JPG"
                 alt='Run'
                 className="object-cover rounded-xl "
             />
