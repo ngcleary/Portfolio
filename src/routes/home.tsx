@@ -741,10 +741,10 @@ export default function Home() {
                                 {categories.map((cat) => (
                                     <Card
                                         key={cat.name}
-                                        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${
+                                        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center  ${
                                             activeCategory?.name === cat.name
-                                                ? "bg-amber-600"
-                                                : "bg-white/90"
+                                                ? "bg-amber-600 hover:bg-amber-400"
+                                                : "bg-white/90 hover:bg-white"
                                         }`}
                                         onClick={() => handleCategoryClick(cat)}
                                     >
@@ -755,7 +755,7 @@ export default function Home() {
                             <div className="flex flex-row gap-8 justify-start items-center max-w-full mx-auto">
                                 <Button
                                     onClick={handlePrev}
-                                    className=" left-0 top-0 bg-white/90 p-3 text-black rounded-lg shadow"
+                                    className=" left-0 top-0 bg-white/90 p-3 text-black rounded-lg shadow hover:bg-white"
                                 >
                                     <ArrowLeft size={20} />
                                 </Button>
@@ -775,7 +775,7 @@ export default function Home() {
 
                                 <Button
                                     onClick={handleNext}
-                                    className=" right-0 top-0 bg-white/90 text-black p-3 rounded-lg shadow"
+                                    className=" right-0 top-0 bg-white/90 text-black p-3 rounded-lg shadow hover:bg-white"
                                 >
                                     <ArrowRight size={20} />
                                 </Button>
