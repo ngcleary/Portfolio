@@ -151,13 +151,13 @@ const items = [
             <div>
                 <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                        ALbania
+                        Research
                     </Badge>
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                        REST API
+                        Interdisciplinary
                     </Badge>
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                        Personal Project
+                        Problem Solving
                     </Badge>
 
                 </div>
@@ -307,6 +307,7 @@ const items = [
             <div className="">
                 In collaboration with Brigham and Women's Hospital, I lead a team of 9 other software developers through 7
                 one-week sprints to design a professional, branded website for employees and patients of the Brigham and Women's hospitals.
+
                 <CaptionedCarousel slides={BGH} />
                 <div className="text-left mt-4"></div>
             </div>
@@ -321,7 +322,7 @@ const items = [
             </div>
 
         ) },
-    { id: 3, title: "WhatToBring | Present", details:
+    { id: 4, title: "WhatToBring | Present", details:
             <div>
                 <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                     <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
@@ -360,7 +361,15 @@ const items = [
                         WhatToBring allows users to sign in using GitHub, add items to the list to indicate they are bringing it or add items to a suggestion list.
 
                         <div className="text-left mt-5">
-                            With the skills I learned throughout my courses, I have decided to build WhatToBring again.
+                            With the skills I learned throughout my courses, I have decided to build WhatToBring again. <a
+                            href="https://github.com/esthermao/CS4342_finalproject"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-1 flex items-center gap-1 text-gray-800 hover:underline inline-flex"
+                        >
+                            <Github size={18} />
+                            Visit
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -373,7 +382,7 @@ const items = [
                 </div>
             </div>
     },
-    { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
+    { id: 3, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
             <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                     JavaScript
@@ -384,10 +393,21 @@ const items = [
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                     Advocacy
                 </Badge>
+                <div className="text-left ">
+                    I am currently working with the Look. Foundation, a nonprofit dedicated to supporting families affected by PANS/PANDAS,
+                    where I lead the design and development of new digital resources for teachers, school nurses, and counselors.
+                    This role combines project management, technical development, and close collaboration with experts in both medicine
+                    and education. <br/><br/>
+                    Throughout this project, I’ve been responsible for identifying gaps in existing school resources, interviewing
+                    medical professionals and active educators, and translating their insights into clear, accessible tools.
+                    I’m designing and building interactive materials—using custom HTML, CSS, and JavaScript within Squarespace—that help school
+                    professionals recognize symptoms, track student needs, and communicate more effectively with families and healthcare providers.
+                </div>
                 <CaptionedCarousel slides={Look} />
 
             </div>
-            BGH
+
+
         </div>},
     { id: 5, title: "Lasker Morris AI | February 2025", details:
     <div>
@@ -433,7 +453,53 @@ const items = [
         </div>
 
     </div>},
-    { id: 6, title: "ml", details: "Project details" },
+    { id: 6, title: "Amazon Rating ML Model | October 2025", details:
+        <div>
+            <div  className="flex flex-wrap gap-2 -mt-4 mb-3">
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    NLP
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    SciKit
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    Python
+                </Badge>
+                <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
+                    pandas
+                </Badge>
+            </div>
+
+            <div>
+                An exploration of Natural Language Processing and multi-class logistic regression models with a group of 5 WPI students. Using SciKit-Learn,
+                SentenceTransformers, and pandas, we predicted the average start rating (1-5) of an Amazon product given the product description,
+                price, and text content of the reviews.  <a
+                    href="https://github.com/esthermao/CS4342_finalproject"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-1 flex items-center gap-1 text-gray-800 hover:underline inline-flex"
+                >
+                    <Github size={18} />
+                     Visit
+                </a>
+                <br/><br/>
+
+                We explored different ways to evaluate text content, using both Word2Vec vector representations of the reviews and TF-IDF
+                (Term Frequency-Inverse Document Frequency) to
+                measure the importance of each word. Using LIME (Local Interpretable Model-agnostic Explanations) we visualized the influence
+                of each word, seeing how words like 'poor' or 'refund' push the prediction down.
+            </div>
+            <img
+                src="/LIME.png"
+                alt='LIME visualization'
+                className="object-cover mx-auto rounded-xl mt-5 mb-5"
+            />
+
+            We found that both methods (text-embedding and bag-of-words approach) resulted in 95.28% accuracy across folds. Because the reviews
+            were short and to-the-point, the SentenceTransformers did not find any additional context, ultimately producing the same results as
+            the TF-IDF approach.
+        </div>
+    },
     { id: 7, title: "Look. Foundation Walk | October 2025", details:
             <div>
                 {/* Skill / Keyword Badges */}
@@ -650,7 +716,7 @@ export default function Home() {
                                         href="https://github.com/ngcleary"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 text-gray-800 hover:underline"
+                                        className="flex items-center gap-1 text-gray-800 hover:underline"
                                     >
                                         <Github size={18} />
                                         GitHub
@@ -701,14 +767,37 @@ export default function Home() {
                             {/* Top large project detail card */}
                                 <Card className="flex flex-col justify-between w-[100%] bg-white/90 backdrop-blur-sm shadow-xl mb-6 overflow-hidden">
                                     <AnimatePresence mode="wait">
+                                        {/*<motion.div*/}
+                                        {/*    key={items[currentIndex].id}*/}
+                                        {/*    initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}*/}
+                                        {/*    animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}*/}
+                                        {/*    exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}*/}
+                                        {/*    transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}*/}
+                                        {/*>*/}
                                         <motion.div
                                             key={items[currentIndex].id}
-                                            initial={isCategoryChange ? { opacity: 0, x: 50 } : { opacity: 1.8, x: 0 }}
-                                            animate={isCategoryChange ? { opacity: 1, x: 0 } : { opacity: 3, x: 0 }}
-                                            exit={isCategoryChange ? { opacity: 0, x: -50 } : { opacity: 0.8, x: 0 }}
-                                            transition={isCategoryChange ? { duration: 0.4 } : { duration: 0.15 }}
+                                            initial={
+                                                isCategoryChange
+                                                    ? { opacity: 0, x: 20 }
+                                                    : { opacity: 0 }
+                                            }
+                                            animate={
+                                                isCategoryChange
+                                                    ? { opacity: 1, x: 0 }
+                                                    : { opacity: 1 }
+                                            }
+                                            exit={
+                                                isCategoryChange
+                                                    ? { opacity: 0, x: -20 }
+                                                    : { opacity: 0 }
+                                            }
+                                            transition={
+                                                isCategoryChange
+                                                    ? { duration: 0.3, ease: "easeOut" }
+                                                    : { duration: 0.25, ease: "easeOut" }
+                                            }
                                         >
-                                            <CardHeader>
+                                        <CardHeader>
                                                 <CardTitle className="text-left text-2xl">{items[currentIndex].title}</CardTitle>
                                             </CardHeader>
                                             <CardContent>
