@@ -26,43 +26,86 @@ const categories = [
 
 //images
 const albania = [
-    "../../public/brewery1.JPG",
-    "../../public/brewery2.JPG",
-    "../../public/brewery4.jpg",
+    "/brewery1.JPG",
+    "/brewery2.JPG",
+    "/brewery4.jpg",
 ]
 const scorecard = [
-    "../../public/scoreQuestion.jpg",
-    "../../public/scoreResult.jpg"
+    "/scoreQuestion.jpg",
+    "/scoreResult.jpg"
 ]
 const BGH = [
-    { src: "../../public/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
-    { src: "../../public/mgbHome2.jpg", caption: "Logged-in users can view notifications, service requests, and the request database." },
-    { src: "../../public/mgbExternal.jpg", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
-    { src: "../../public/mgbExternal2.jpg", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
-    { src: "../../public/mgbInternal.jpg", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
-    { src: "../../public/mgbInternal2.jpg", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
-    { src: "../../public/mgbMapEdit.jpg", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
-    { src: "../../public/mgbNodeInfo.jpg", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
-    { src: "../../public/mgbNodePlace.jpg", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
+    { src: "/mgbHome.jpg", caption: "Home page with Navigation, Directory, and About sections available to all users. Full features require login." },
+    { src: "/mgbHome2.jpg", caption: "Logged-in users can view notifications, service requests, and the request database." },
+    { src: "/mgbExternal.jpg", caption: "‘Find a Location’ opens our external map tool powered by Google Maps API, where users can enter or detect their location, choose travel mode, and select a destination."},
+    { src: "/mgbExternal2.jpg", caption: "After choosing start and destination, users see a route, step-by-step text directions, and optional audio guidance. Clicking ‘I’ve Arrived’ moves to internal navigation."},
+    { src: "/mgbInternal.jpg", caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
+    { src: "/mgbInternal2.jpg", caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
+    { src: "/mgbMapEdit.jpg", caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
+    { src: "/mgbNodeInfo.jpg", caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
+    { src: "/mgbNodePlace.jpg", caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
 
-    { src: "../../public/mgbNodeEdge.jpg", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
-    { src: "../../public/mgbEditNode.jpg", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
-    { src: "../../public/mgbServiceReq.jpg", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
-    { src: "../../public/mgbAnounce.jpg", caption: "Clicking the bell icon opens a notification panel showing active announcements for employees and admins. Clicking a notification marks it as read and removes the highlight. The bell icon badge displays the count of unread notifications." },
+    { src: "/mgbNodeEdge.jpg", caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
+    { src: "/mgbEditNode.jpg", caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
+    { src: "/mgbServiceReq.jpg", caption: "Each tab lists service requests with filters, sortable columns, and details pop-ups for request info." },
+    { src: "/mgbAnounce.jpg", caption: "Clicking the bell icon opens a notification panel showing active announcements for employees and admins. Clicking a notification marks it as read and removes the highlight. The bell icon badge displays the count of unread notifications." },
 
 
 ];
 const softEngImages = [
-    "../../public/resizeWTBOld.png",
-    "../../public/WTBLogin.jpg",
-    "../../public/WTBSignup.jpg",
-    "../../public/WTBHome.jpg",
+    "/resizeWTBOld.png",
+    "/WTBLogin.jpg",
+    "/WTBSignup.jpg",
+    "/WTBHome.jpg",
+]
+const Look =
+    [
+        {
+            src: "/lookCards.jpg",
+            caption:
+                "Symptom Cards — On every home page (nurse, teacher, counselor), users can flip symptom cards to view an overview of PANS/PANDAS symptoms."
+        },
+        {
+            src: "/counselor1.jpg",
+            caption:
+                "Counselors — Counselors can build exposure ladders by entering steps, rating anxiety and willingness, and saving each run. Steps can be reordered with drag-and-drop and edited at any time."
+        },
+        {
+            src: "/nurse1.jpg",
+            caption:
+                "School Nurse — A quick test breaks down each PANS/PANDAS symptom for easy identification. If the symptoms align with PANDAS, users can generate a provider note with recommended next steps."
+        },
+        {
+            src: "/nurse2.jpg",
+            caption:
+                "School Nurse — Users fill out text boxes to generate a provider note. The symptoms selected above are automatically included."
+        },
+        {
+            src: "/nurse4.jpg",
+            caption:
+                "School Nurse — Users can preview the provider note before downloading a personalized PDF."
+        },
+        {
+            src: "/nurse5.jpg",
+            caption:
+                "School Nurse (Illness Letter) — Users fill in text boxes to generate a customized illness letter for classes, supporting students whose PANDAS symptoms flare when they get sick. The PDF can then be downloaded."
+        },
+        {
+            src: "/teacher1.jpg",
+            caption:
+                "Teachers — Check symptom boxes to generate a tailored list of classroom accommodations based on the symptoms selected."
+        },
+        {
+            src: "/teacher2.jpg",
+            caption:
+                "Teachers — A symptom tracking list allows teachers to record behaviors and communicate patterns to parents."
+        }
 ]
 const LookWalkImages = [
-    "../../public/LookGoat.JPG",
-    "../../public/LookTable.JPG",
-    "../../public/LookWalking.JPG",
-    "../../public/LookTable2.JPG",
+    "/LookGoat.JPG",
+    "/LookTable.JPG",
+    "/LookWalking.JPG",
+    "/LookTable2.JPG",
 ]
 
 const items = [
@@ -333,14 +376,15 @@ const items = [
     { id: 4, title: "Look. Foundation School Guide | May 2025 - Present", details: <div>
             <div className="flex flex-wrap gap-2 -mt-4 mb-3">
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Leadership
+                    JavaScript
                 </Badge>
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
                     Project Management
                 </Badge>
                 <Badge variant="secondary" className="bg-gray-100/70 text-gray-800">
-                    Javascript
+                    Advocacy
                 </Badge>
+                <CaptionedCarousel slides={Look} />
 
             </div>
             BGH
