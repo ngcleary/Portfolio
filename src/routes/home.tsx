@@ -404,7 +404,7 @@ const items = [
 
                         <div className="text-left mt-5">
                             With the skills I learned throughout my courses, I have decided to build WhatToBring again. <a
-                            href="https://github.com/esthermao/CS4342_finalproject"
+                            href="https://github.com/ngcleary/WhatToBring"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="ml-1 flex items-center gap-1 text-gray-800 hover:underline inline-flex"
