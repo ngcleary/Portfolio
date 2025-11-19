@@ -1,7 +1,7 @@
 import profilePic from "../../public/profilepic.png";
 import {useEffect, useRef, useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import {Linkedin, Github, ArrowRight, ArrowLeft} from "lucide-react";
+import {Linkedin, Github, ArrowRight, ArrowLeft, YoutubeIcon} from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "../components/ui/card";
 import { Button } from "@/components/ui/button";
 // import { Pagination } from "../components/ui/pagination";
@@ -46,7 +46,7 @@ const BGH = [
     { src: `${base}mgbInternal.jpg`, caption: "Internal maps help users navigate from parking lots to departments. Selecting both from dropdowns and clicking ‘Get Directions’ displays the route."},
     { src: `${base}mgbInternal2.jpg`, caption: "Users can also say commands like ‘Take me from Patient Parking to Allergy Department.’ Voice input appears as text, and users can zoom or pan the map."},
     { src: `${base}mgbMapEdit.jpg`, caption: "Admins can edit pathfinding maps. Nodes (colored markers) represent key locations, and edges (blue lines) connect them." },
-    { src: `${base}mgbNodeInfo.jpg`, caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates" },
+    { src: `${base}mgbNodeInfo.jpg`, caption: "Double-clicking a node highlights it and shows detailed info such as name and coordinates." },
     { src: `${base}mgbNodePlace.jpg`, caption: "Click on the map to place a new node. After selecting its type and name, click ‘Save Node’ to add it." },
     { src: `${base}mgbNodeEdge.jpg`, caption: "Select two nodes and click ‘Save Edge’ to connect them with a blue line." },
     { src: `${base}mgbEditNode.jpg`, caption: "“In the Edit Node tab, admins can rename nodes, change type or coordinates, or drag them to new locations before saving." },
@@ -318,7 +318,15 @@ const items = [
             </div>
             <div className="">
                 In collaboration with Brigham and Women's Hospital, I lead a team of 9 other software developers through 7
-                one-week sprints to design a professional, branded website for employees and patients of the Brigham and Women's hospitals.
+                one-week sprints to design a professional, branded website for employees and patients of the Brigham and Women's hospitals. <a
+                href="https://youtu.be/a8q2InTtLC4?si=Gh91O3I8Q5NMSEXc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 flex items-center gap-1 text-gray-800 hover:underline inline-flex"
+                >
+                <YoutubeIcon size={18} />
+                    Demo
+                </a>
 
                 <CaptionedCarousel slides={BGH} />
                 <div className="text-left mt-4"></div>
@@ -734,89 +742,59 @@ export default function Home() {
                         </Card>
                     </div>
 
-
                     {/* Right column */}
                     <div className="flex flex-col gap-6 w-full max-w-full h-full relative">
-                        <div className="flex items-center justify-start relative h-12 w-full">
-
-                            <div className="flex flex-row gap-2 flex-wrap max-w-full">
-                                {categories.map((cat) => (
-                                    <Card
-                                        key={cat.name}
-                                        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center  ${
-                                            activeCategory?.name === cat.name
-                                                ? "bg-amber-600 hover:bg-amber-400"
-                                                : "bg-white/90 hover:bg-white"
-                                        }`}
-                                        onClick={() => handleCategoryClick(cat)}
-                                    >
-                                        {cat.name}
-                                    </Card>
-                                ))}
-                            </div>
-                            <div className="flex flex-row gap-8 justify-start items-center max-w-full mx-auto">
+                        <div className="flex items-baseline justify-between relative w-full">
                                 <Button
                                     onClick={handlePrev}
-                                    className=" left-0 top-0 bg-white/90 p-3 text-black rounded-lg shadow hover:bg-white"
+                                    className="w-[10%] left-0 top-0 bg-white/90 p-3 text-black rounded-lg shadow hover:bg-white"
                                 >
                                     <ArrowLeft size={20} />
                                 </Button>
-                                {/* Pagination dots */}
-                                <div className="flex items-center gap-2">
-                                    {categories
-                                        .find((cat) => cat.indices.includes(currentIndex))
-                                        ?.indices.map((i) => (
-                                            <div
-                                                key={i}
-                                                className={`w-3 h-3 rounded-full ${
-                                                    i === currentIndex ? "bg-amber-600" : "bg-gray-400"
-                                                } transition-all duration-300`}
-                                            />
-                                        ))}
-                                </div>
+                            <div className="flex flex-row gap-2 flex-wrap max-w-full">
+                                {categories.map((cat) => {
+                                    const isActive = activeCategory?.name === cat.name;
 
-                                <Button
-                                    onClick={handleNext}
-                                    className=" right-0 top-0 bg-white/90 text-black p-3 rounded-lg shadow hover:bg-white"
-                                >
-                                    <ArrowRight size={20} />
-                                </Button>
+                                    return (
+                                        <div key={cat.name} className="flex flex-col items-center">
+                                            <Card
+                                                className={` p-4 cursor-pointer transition-all font-medium justify-around text-center 
+                                                ${
+                                                    isActive
+                                                        ? "bg-amber-600 hover:bg-amber-400"
+                                                        : "bg-white/90 hover:bg-white"
+                                                }`}
+                                                onClick={() => handleCategoryClick(cat)}
+                                            >
+                                                {cat.name}
+                                            </Card>
+
+                                            {/* Pagination dots only for active category */}
+                                            {isActive && (
+                                                <div className="flex items-center gap-2 mt-2">
+                                                    {cat.indices.map((i) => (
+                                                        <div
+                                                            key={i}
+                                                            className={`w-3 h-3 rounded-full ${
+                                                                i === currentIndex ? "bg-amber-600" : "bg-gray-400"
+                                                            } transition-all duration-300`}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
                             </div>
 
-
+                            <Button
+                                onClick={handleNext}
+                                className=" w-[10%] right-0 top-0 bg-white/90 text-black p-3 rounded-lg shadow hover:bg-white"
+                            >
+                                <ArrowRight size={20} />
+                            </Button>
                         </div>
-
-                        {/*<button*/}
-                        {/*    onClick={handlePrev}*/}
-                        {/*    className="absolute left-0 -translate-x-1/2 bg-white/90 p-3 rounded-full shadow z-50">*/}
-                        {/*    <ArrowLeft size={28} />*/}
-                        {/*</button>*/}
-
-                        {/*/!* FIXED RIGHT ARROW *!/*/}
-                        {/*<button*/}
-                        {/*    onClick={handleNext}*/}
-                        {/*    className="absolute right-0 translate-x-1/2 bg-white/90 p-3 rounded-full shadow z-50"*/}
-                        {/*>*/}
-                        {/*    <ArrowRight size={28} />*/}
-                        {/*</button>*/}
-
-                        {/* Bottom row of smaller cards */}
                         <div className="flex flex-row gap-8 flex-wrap max-w-full">
-                            {/*{categories.map((cat) => (*/}
-                            {/*    <Card*/}
-                            {/*        key={cat.name}*/}
-                            {/*        className={`p-4 cursor-pointer transition-all font-medium justify-around text-center ${*/}
-                            {/*            activeCategory?.name === cat.name*/}
-                            {/*                ? "bg-amber-600"*/}
-                            {/*                : "bg-white/90"*/}
-                            {/*        }`}*/}
-                            {/*        onClick={() => handleCategoryClick(cat)}*/}
-                            {/*    >*/}
-                            {/*        {cat.name}*/}
-                            {/*    </Card>*/}
-                            {/*))}*/}
-
-                            {/* Top large project detail card */}
 
                                 <Card className="flex flex-col justify-between w-[100%] bg-white/90 backdrop-blur-sm shadow-xl mb-6">
                                     <AnimatePresence mode="wait">
@@ -851,29 +829,6 @@ export default function Home() {
                                             </CardContent>
                                         </motion.div>
                                     </AnimatePresence>
-                                    {/* rest of card */}
-                                {/*</Card>*/}
-
-                                <div className="flex flex-col">
-                                    {/*<CardFooter className=" flex justify-between items-center mt-4">*/}
-                                    {/*    <Button onClick={handlePrev}>←</Button>*/}
-                                    {/*    /!* Pagination dots *!/*/}
-                                    {/*    <div className="flex items-center gap-2">*/}
-                                    {/*        {categories*/}
-                                    {/*            .find((cat) => cat.indices.includes(currentIndex))*/}
-                                    {/*            ?.indices.map((i) => (*/}
-                                    {/*                <div*/}
-                                    {/*                    key={i}*/}
-                                    {/*                    className={`w-3 h-3 rounded-full ${*/}
-                                    {/*                        i === currentIndex ? "bg-amber-800" : "bg-gray-400"*/}
-                                    {/*                    } transition-all duration-300`}*/}
-                                    {/*                />*/}
-                                    {/*            ))}*/}
-                                    {/*    </div>*/}
-                                    {/*    <Button onClick={handleNext}>→</Button>*/}
-                                    {/*</CardFooter>*/}
-                                </div>
-
                             </Card>
 
                         </div>
